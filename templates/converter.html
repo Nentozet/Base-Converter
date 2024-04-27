@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{converter_title}}</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>{{converter_title}}</h1>
+    <form action="/result" method="post">
+      <div class="form-group">
+        <label for="from_notation">{{from_notation}}:</label>
+        <select class="form-control" name="from_notation" id="from_notation">
+          <option value="10">{{decimal}}</option>
+          <option value="2">{{binary}}</option>
+          <option value="16">{{hexadecimal}}</option>
+          <option value="3">{{ternary}}</option>
+          <option value="4">{{quaternary}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="to_notation">{{to_notation}}:</label>
+        <select class="form-control" name="to_notation" id="to_notation">
+          <option value="10">{{decimal}}</option>
+          <option value="2">{{binary}}</option>
+          <option value="16">{{hexadecimal}}</option>
+          <option value="3">{{ternary}}</option>
+          <option value="4">{{quaternary}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="number_to_convert">{{number_to_convert}}:</label>
+        <input type="text" class="form-control" name="number_to_convert" id="number_to_convert">
+      </div>
+      <button type="submit" class="btn btn-primary">{{convert}}</button>
+      <a href="/" class="btn btn-primary">{{change_lang}}</a>
+    </form>
+  </div>
+</body>
+</html>
