@@ -1,0 +1,116 @@
+{
+  "ru":
+  {
+    "welcome_title": "Добро пожаловать",
+    "start_button": "Начать",
+
+    "converter_title": "Конвертер систем счисления",
+    "from_notation": "Из системы счисления",
+    "to_notation": "В систему счисления",
+    "decimal": "Десятичная",
+    "binary": "Двоичная",
+    "hexadecimal": "Шестнадцатеричная",
+    "ternary": "Троичная",
+    "quaternary": "Четверичная",
+    "number_to_convert": "Число для преобразования",
+    "convert": "Сконвертировать",
+    "change_lang": "Сменить язык",
+
+    "conversion_result_title": "Результат преобразования",
+    "result_title": "Результат",
+    "error": "Введено неверное число",
+    "back_to_converter": "Вернуться к конвертеру"
+  },
+
+  "en":
+  {
+    "welcome_title": "Welcome",
+    "start_button": "Start",
+
+    "converter_title": "Notation converter",
+    "from_notation": "From notation",
+    "to_notation": "To notation",
+    "decimal": "Decimal",
+    "binary": "Binary",
+    "hexadecimal": "Hexadecimal",
+    "ternary": "Ternary",
+    "quaternary": "Quaternary",
+    "number_to_convert": "Number to convert",
+    "convert": "Convert",
+    "change_lang": "Сhange language",
+
+    "conversion_result_title": "Сonversion result",
+    "result_title": "Result",
+    "error": "Invalid number entered",
+    "back_to_converter": "Back to converter"
+  },
+
+    "ge":
+  {
+    "welcome_title": "Willkommen",
+    "start_button": "Start",
+
+    "converter_title": "Notationskonverter",
+    "from_notation": "Aus der Notation",
+    "to_notation": "Zur Notation",
+    "decimal": "Dezimal",
+    "binary": "Binär",
+    "hexadecimal": "Hexadezimal",
+    "ternary": "Ternär",
+    "quaternary": "Quartär",
+    "number_to_convert": "Zu konvertierende Zahl",
+    "convert": "Konvertieren",
+    "change_lang": "Sprache ändern",
+
+    "conversion_result_title": "Konvertierungsergebnis",
+    "result_title": "Ergebnis",
+    "error": "Ungültige Nummer eingegeben",
+    "back_to_converter": "Zurück zum Konverter"
+  },
+
+  "fr":
+  {
+    "welcome_title": "D'accueil",
+    "start_button": "Commencer",
+
+    "converter_title": "Convertisseur de notations",
+    "from_notation": "De la notation",
+    "to_notation": "Notation",
+    "decimal": "Décimale",
+    "binary": "Binaire",
+    "hexadecimal": "Hexadécimale",
+    "ternary": "Ternaire",
+    "quaternary": "Quaternaire",
+    "number_to_convert": "Nombre à convertir",
+    "convert": "Convertir",
+    "change_lang": "Changer la langue",
+
+    "conversion_result_title": "Résultat de la conversion",
+    "result_title": "Résultat",
+    "error": "Numéro saisi invalide",
+    "back_to_converter": "Retour au convertisseur"
+  },
+
+  "ja":
+  {
+    "welcome_title": "いらっしゃいませ",
+    "start_button": "始める",
+
+    "converter_title": "表記コンバータ",
+    "from_notation": "表記より",
+    "to_notation": "表記へ",
+    "decimal": "10進数",
+    "binary": "バイナリ",
+    "hexadecimal": "16進数",
+    "ternary": "三進法",
+    "quaternary": "第四紀",
+    "number_to_convert": "変換する数値",
+    "convert": "変換する",
+    "change_lang": "言語を変更する",
+
+    "conversion_result_title": "変換結果",
+    "result_title": "結果",
+    "error": "無効な番号が入力されました",
+    "back_to_converter": "コンバーターに戻る"
+  }
+}
