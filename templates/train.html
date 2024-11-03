@@ -1,0 +1,43 @@
+{% extends base_filename %}
+
+
+{% block title %}{{ train_title }}{% endblock %}
+
+
+{% block styles %}
+    .container {
+        max-width: 800px;
+    }
+
+    .form-group label {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 0px;
+    }
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>{{ train_title }}</h1>
+        <form method="post">
+            <div class="form-group">
+                {% set separated_text = task_text.split("\n") %}
+                <label>{{ separated_text[0] }}</label>
+                <div style="text-align: center;">
+                    {% if separated_text[0] != separated_text[-1] %}
+                        <label style="text-align: center;">{{ separated_text[-1] }}</label>
+                    {% endif %}
+                 </div>
+                <input type="text" class="custom-input" name="answer" id="answer" style="margin-top: 10px"
+                       placeholder="{{ task_placeholder_text }}" autocomplete="off" required>
+                <button type="submit" class="btn btn-success" style="margin-top: 10px">{{ check }}</button>
+                <div class="d-flex justify-content-center">
+                    <a href="/converter" class="btn btn-danger mr-2">{{ back }}</a>
+                    <a href="/logout" class="btn btn-danger">{{ logout }}</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
