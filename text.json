@@ -1,116 +1,236 @@
 {
   "ru":
   {
-    "welcome_title": "Добро пожаловать",
-    "start_button": "Начать",
+    "language": "Русский",
 
     "converter_title": "Конвертер систем счисления",
-    "from_notation": "Из системы счисления",
-    "to_notation": "В систему счисления",
-    "decimal": "Десятичная",
-    "binary": "Двоичная",
-    "hexadecimal": "Шестнадцатеричная",
-    "ternary": "Троичная",
-    "quaternary": "Четверичная",
+    "from_base": "Из системы счисления",
+    "converter_placeholder_text": "Введите основание",
+    "to_base": "В систему счисления",
     "number_to_convert": "Число для преобразования",
     "convert": "Сконвертировать",
-    "change_lang": "Сменить язык",
+    "train": "Потренироваться",
+    "task_placeholder_text": "Введите полученное число",
+    "check": "Проверить ответ",
+    "return": "Вернуться",
 
     "conversion_result_title": "Результат преобразования",
     "result_title": "Результат",
-    "error": "Введено неверное число",
-    "back_to_converter": "Вернуться к конвертеру"
+    "back": "Вернуться",
+    "correct": "Верно",
+    "incorrect": "Неверно. Правильный ответ: _",
+
+    "train_title": "Тренировка",
+    "task_1": "Переведите число _ в систему счисления _ (основание в ответе указывать не нужно)",
+    "task_2": "Сколько целых чисел x удовлетворяет этому двойному неравенству: \n_ _ x _ _?",
+
+    "registration_title": "Создайте аккаунт",
+    "username": "Имя пользователя",
+    "enter_username": "Введите имя пользователя",
+    "password": "Пароль",
+    "enter_password": "Введите пароль",
+    "repeat_password": "Повторите пароль",
+    "register": "Зарегистрироваться",
+
+    "login_title": "Авторизация",
+    "login": "Войти",
+    "offer_to_register_1": "Нет аккаунта? ",
+    "offer_to_register_2": "Зарегистрируйтесь",
+    "logout": "Выйти",
+
+    "convertion_error": "Ошибка конвертации! Перероверьте введеные значения",
+    "repeated_username_alert": "Пользователь уже существует",
+    "different_passwords_alert": "Пароли не совпадают",
+    "registration_success": "Регистрация прошла успешно. Теперь вы можете войти",
+    "invalid_login_data": "Неверные данные для входа",
+    "logout_success": "Вы вышли из системы"
   },
 
-  "en":
+  "gb":
   {
-    "welcome_title": "Welcome",
-    "start_button": "Start",
+    "language": "English",
 
     "converter_title": "Notation converter",
-    "from_notation": "From notation",
-    "to_notation": "To notation",
-    "decimal": "Decimal",
-    "binary": "Binary",
-    "hexadecimal": "Hexadecimal",
-    "ternary": "Ternary",
-    "quaternary": "Quaternary",
+    "from_base": "From notation",
+    "converter_placeholder_text": "Enter the base",
+    "to_base": "To notation",
     "number_to_convert": "Number to convert",
     "convert": "Convert",
-    "change_lang": "Сhange language",
+    "train": "Train",
+    "task_placeholder_text": "Enter the resulting number",
+    "check": "Check the answer",
+    "return": "Return",
 
     "conversion_result_title": "Сonversion result",
     "result_title": "Result",
-    "error": "Invalid number entered",
-    "back_to_converter": "Back to converter"
+    "back": "Back",
+    "correct": "Correctly",
+    "incorrect": "Wrong. The correct answer is: _",
+
+    "train_title": "Training",
+    "task_1": "Convert the number _ to base _ (the base does not need to be specified in the answer)",
+    "task_2": "How many integers x satisfy this double inequality: \n_ _ x _ _?",
+
+    "registration_title": "Create an account",
+    "username": "Username",
+    "enter_username": "Enter username",
+    "password": "Password",
+    "enter_password": "Enter password",
+    "repeat_password": "Repeat password",
+    "register": "Sign up",
+
+    "login_title": "Authorization",
+    "login": "Log in",
+    "offer_to_register_1": "Don't have an account? ",
+    "offer_to_register_2": "Sign up",
+    "logout": "Logout",
+
+    "convertion_error": "Conversion error! Please check the entered values",
+    "repeated_username_alert": "User already exists",
+    "different_passwords_alert": "Passwords do not match",
+    "registration_success": "Registration successful. You can now log in",
+    "invalid_login_data": "Invalid login credentials",
+    "logout_success": "You have logged out"
   },
 
-    "ge":
+    "de":
   {
-    "welcome_title": "Willkommen",
-    "start_button": "Start",
+    "language": "Deutsch",
 
     "converter_title": "Notationskonverter",
-    "from_notation": "Aus der Notation",
-    "to_notation": "Zur Notation",
-    "decimal": "Dezimal",
-    "binary": "Binär",
-    "hexadecimal": "Hexadezimal",
-    "ternary": "Ternär",
-    "quaternary": "Quartär",
+    "from_base": "Aus der Notation",
+    "converter_placeholder_text": "Geben Sie die Basis ein",
+    "to_base": "Zur Notation",
     "number_to_convert": "Zu konvertierende Zahl",
     "convert": "Konvertieren",
-    "change_lang": "Sprache ändern",
+    "train": "Üben",
+    "task_placeholder_text": "Geben Sie die Nummer ein, die Sie erhalten haben",
+    "check": "Antwort prüfen",
+    "return": "Zurückkehren",
 
     "conversion_result_title": "Konvertierungsergebnis",
     "result_title": "Ergebnis",
-    "error": "Ungültige Nummer eingegeben",
-    "back_to_converter": "Zurück zum Konverter"
+    "back": "Zurück",
+    "correct": "Rechts",
+    "incorrect": "Das ist falsch. Die richtige Antwort lautet: _",
+
+    "train_title": "Training",
+    "task_1": "Wandeln Sie die Zahl _ in das Zahlensystem _ um (die Basis muss in der Antwort nicht angegeben werden)",
+    "task_2": "Wie viele ganze Zahlen x erfüllen diese doppelte Ungleichung: \n_ _ x _ _?",
+
+    "registration_title": "Ein Konto erstellen",
+    "username": "Benutzername",
+    "enter_username": "Geben Sie den Benutzernamen ein",
+    "password": "Passwort",
+    "enter_password": "Geben Sie das Passwort ein",
+    "repeat_password": "Passwort wiederholen",
+    "register": "Registrieren",
+
+    "login_title": "Anmeldung",
+    "login": "Anmelden",
+    "offer_to_register_1": "Kein Konto? ",
+    "offer_to_register_2": "Registrieren",
+    "logout": "Abmelden",
+
+    "convertion_error": "Konvertierungsfehler! Bitte überprüfen Sie die eingegebenen Werte",
+    "repeated_username_alert": "Benutzer existiert bereits",
+    "different_passwords_alert": "Passwörter stimmen nicht überein",
+    "registration_success": "Registrierung erfolgreich. Sie können sich jetzt anmelden",
+    "invalid_login_data": "Ungültige Anmeldedaten",
+    "logout_success": "Sie haben sich abgemeldet"
   },
 
   "fr":
   {
-    "welcome_title": "D'accueil",
-    "start_button": "Commencer",
+    "language": "Français",
 
     "converter_title": "Convertisseur de notations",
-    "from_notation": "De la notation",
-    "to_notation": "Notation",
-    "decimal": "Décimale",
-    "binary": "Binaire",
-    "hexadecimal": "Hexadécimale",
-    "ternary": "Ternaire",
-    "quaternary": "Quaternaire",
+    "from_base": "De la notation",
+    "converter_placeholder_text": "Entrez la base",
+    "to_base": "Notation",
     "number_to_convert": "Nombre à convertir",
     "convert": "Convertir",
-    "change_lang": "Changer la langue",
+    "train": "S'entraîner",
+    "task_placeholder_text": "Entrez le numéro reçu",
+    "check": "Vérifier la réponse",
+    "return": "Retour",
 
     "conversion_result_title": "Résultat de la conversion",
     "result_title": "Résultat",
-    "error": "Numéro saisi invalide",
-    "back_to_converter": "Retour au convertisseur"
+    "back": "Retour",
+    "correct": "Droite",
+    "incorrect": "C'est faux. La bonne réponse est : _",
+
+    "train_title": "Entraînement",
+    "task_1": "Convertir le chiffre _ en système numérique _ (il n'est pas nécessaire d'indiquer la base dans la réponse)",
+    "task_2": "Combien de nombres entiers x satisfont cette double inégalité : \n_ _ x _ _?",
+
+    "registration_title": "Créer un compte",
+    "username": "Nom d'utilisateur",
+    "enter_username": "Entrez le nom d'utilisateur",
+    "password": "Mot de passe",
+    "enter_password": "Entrez le mot de passe",
+    "repeat_password": "Répétez le mot de passe",
+    "register": "S'inscrire",
+
+    "login_title": "Connexion",
+    "login": "Se connecter",
+    "offer_to_register_1": "Pas de compte? ",
+    "offer_to_register_2": "Inscrivez-vous",
+    "logout": "Déconnexion",
+
+    "convertion_error": "Erreur de conversion ! Veuillez vérifier les valeurs saisies",
+    "repeated_username_alert": "L'utilisateur existe déjà",
+    "different_passwords_alert": "Les mots de passe ne correspondent pas",
+    "registration_success": "Inscription réussie. Vous pouvez maintenant vous connecter",
+    "invalid_login_data": "Identifiants de connexion incorrects",
+    "logout_success": "Vous vous êtes déconnecté"
   },
 
-  "ja":
+  "jp":
   {
-    "welcome_title": "いらっしゃいませ",
-    "start_button": "始める",
+    "language": "日本語",
 
     "converter_title": "表記コンバータ",
-    "from_notation": "表記より",
-    "to_notation": "表記へ",
-    "decimal": "10進数",
-    "binary": "バイナリ",
-    "hexadecimal": "16進数",
-    "ternary": "三進法",
-    "quaternary": "第四紀",
+    "from_base": "表記より",
+    "converter_placeholder_text": "基数を入力してください",
+    "to_base": "表記へ",
     "number_to_convert": "変換する数値",
     "convert": "変換する",
-    "change_lang": "言語を変更する",
+    "train": "練習する",
+    "task_placeholder_text": "受信した番号を入力してください",
+    "check": "答えを確認する",
+    "return": "戻る",
 
     "conversion_result_title": "変換結果",
     "result_title": "結果",
-    "error": "無効な番号が入力されました",
-    "back_to_converter": "コンバーターに戻る"
+    "back": "戻る",
+    "correct": "右",
+    "incorrect": "それは不正解です。正解は次のとおりです。 _",
+
+    "train_title": "トレーニング",
+    "task_1": "数値 _ を数体系 _ に変換します (解答には基数を指定する必要はありません)",
+    "task_2": "この二重不等式を満たす整数 x はいくつありますか: \n_ _ x _ _?",
+
+    "registration_title": "アカウントを作成する",
+    "username": "ユーザー名",
+    "enter_username": "ユーザー名を入力してください",
+    "password": "パスワード",
+    "enter_password": "パスワードを入力してください",
+    "repeat_password": "パスワードを再入力してください",
+    "register": "登録する",
+
+    "login_title": "認証",
+    "login": "ログイン",
+    "offer_to_register_1": "アカウントがありませんか？ ",
+    "offer_to_register_2": "登録する",
+    "logout": "ログアウト",
+
+    "convertion_error": "変換エラー！入力された値を確認してください",
+    "repeated_username_alert": "ユーザーは既に存在します",
+    "different_passwords_alert": "パスワードが一致しません",
+    "registration_success": "登録が成功しました。ログインできます",
+    "invalid_login_data": "無効なログイン情報",
+    "logout_success": "ログアウトしました"
   }
 }
