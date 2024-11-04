@@ -94,7 +94,6 @@ def train():
 
     user_id = session.get("user_id")
     user = db.session.get(User, user_id)
-    print(user_id, user)
 
     if user.need_to_reset_task:
         program.reset_task(randint(1, 2), user)
@@ -117,8 +116,6 @@ def train():
             user.on_solved_task(res)
 
             return redirect(url_for("result"))
-
-    print(user.task_correct_answers.split("|")[-1])
 
     task_text = program.get_task_text(user)
     return program.get_rendered_template("train.html", user, task_text)
