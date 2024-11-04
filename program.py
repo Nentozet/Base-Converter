@@ -45,7 +45,7 @@ class Program:
                 raise Exception("Program doesn't know about this action")
 
     def check_answer_for_task(self, answer, user):
-        return self.task_manager.check_answer(answer, self.Text_Base[user.language], user)
+        return self.task_manager.check_answer(answer, user)
 
     def reset_task(self, task_type, user):
         self.task_manager.reset_task(task_type, user)
