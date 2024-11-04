@@ -63,19 +63,15 @@ class TaskManager:
         db.session.commit()
 
     @staticmethod
-    def check_answer(answer, text_base, user):
+    def check_answer(answer, user):
         correct_answers = user.task_correct_answers.split('|')
         if answer == correct_answers[0]:
-            session["user_result"] = text_base["correct"]
             session["color"] = Config.Right_Font_Color
             session["last_answer_correct"] = True
-            # self.__last_answer_was_correct = True
             return True
         else:
-            session["user_result"] = text_base["incorrect"].replace("_", correct_answers[0])
             session["color"] = "#ff0000"
             session["last_answer_correct"] = False
-            # self.__last_answer_was_correct = False
             return False
 
     @staticmethod
