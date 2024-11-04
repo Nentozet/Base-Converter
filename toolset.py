@@ -9,4 +9,3 @@ class Toolset:
     def get_number_with_base(number, base):
         base_table = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
         return str(number) + str(base).translate(base_table)
-

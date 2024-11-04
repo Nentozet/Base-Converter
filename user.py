@@ -6,8 +6,8 @@ db = SQLAlchemy()
 
 
 class User(db.Model):
-    __Min_Adaptive_Difficulty_Score = 0
-    __Max_Adaptive_Difficulty_Score = 10
+    __Min_Skill_Level = 0
+    __Max_Skill_Level = 10
 
     __Max_Correct_Tasks_In_A_Row_Count = 4
     __Min_Correct_Tasks_In_A_Row_Count = 2
@@ -18,6 +18,10 @@ class User(db.Model):
     username = db.Column(db.String(50), nullable=False, unique=True)
     language = db.Column(db.String(2))
     theme = db.Column(db.String(20))
+    task_type = db.Column(db.String(2))
+    task_data = db.Column(db.String(128))
+    task_correct_answers = db.Column(db.String(128))
+    need_to_reset_task = db.Column(db.Boolean, default=True)
     __password_hash = db.Column(db.String(128), nullable=False)
     __skill_level = db.Column(db.Integer, default=0)
     __correct_tasks_in_a_row_count = db.Column(db.Integer, default=0)
@@ -54,7 +58,7 @@ class User(db.Model):
             # Высчитываем коэфициэнт для получения шанса изменения показателя адаптивной сложности
             ratio = (1.0 - float(max_tasks_in_a_row - tasks_in_a_row) / 3.0)
             if randint(0, 100) <= int(ratio * 100.0):
-                self.__skill_level = min(max(self.__adaptive_difficulty_score + dif_delta, min_score), max_score)
+                self.__skill_level = min(max(self.__skill_level + dif_delta, min_score), max_score)
 
                 # Сбрасываем счетчик решенных подряд задач в зависимости от того,
                 # правильно или неправильно они были решены
@@ -63,7 +67,6 @@ class User(db.Model):
                 else:
                     self.__incorrect_tasks_in_a_row_count = 0
 
-        # self.__solved_tasks_count += 1
         db.session.commit()
 
     def get_adaptive_difficulty_ratio(self):

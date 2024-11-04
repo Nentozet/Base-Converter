@@ -1,46 +1,34 @@
-import random
+from flask import session
+from user import db
 from toolset import Toolset
 from converter import Converter
+from config import Config
+import random
 
 
-class Task:
+class TaskManager:
     __Bases_For_Task = range(2, 37)
-    # __Min_Right_Border_For_Base = __Bases_For_Task.index(16)
-    # __Max_Right_Border_For_Base = __Bases_For_Task.index(36)
-    #
-    # __Min_Left_Border_For_Number = 10
-    # __Max_Left_Border_For_Number = 35
-    # __Min_Right_Border_For_Number = 975
-    # __Max_Right_Border_For_Number = 1000
 
     __Left_Border_For_Number = 20
     __Right_Border_For_Number = 1000
 
-    def __init__(self):
-        self.text = ""
-        self.__type = 1
-        self.__data = []
-        self.__correct_answer = ""
-        self.__format_correct_answer = ""
-        self.__last_answer_was_correct = True
-
     @staticmethod
     def get_random_number_base(preferences=""):
-        base = random.choice(Task.__Bases_For_Task)
+        base = random.choice(TaskManager.__Bases_For_Task)
 
-        delta = Task.__Right_Border_For_Number - Task.__Left_Border_For_Number
+        delta = TaskManager.__Right_Border_For_Number - TaskManager.__Left_Border_For_Number
         match preferences:
             case "":
-                left_border = Task.__Left_Border_For_Number
-                right_border = Task.__Left_Border_For_Number + delta
+                left_border = TaskManager.__Left_Border_For_Number
+                right_border = TaskManager.__Left_Border_For_Number + delta
 
             case "first_half":
-                left_border = Task.__Left_Border_For_Number
-                right_border = Task.__Left_Border_For_Number + delta // 2
+                left_border = TaskManager.__Left_Border_For_Number
+                right_border = TaskManager.__Left_Border_For_Number + delta // 2
 
             case "second_half":
-                left_border = Task.__Left_Border_For_Number + delta // 2
-                right_border = Task.__Left_Border_For_Number + delta
+                left_border = TaskManager.__Left_Border_For_Number + delta // 2
+                right_border = TaskManager.__Left_Border_For_Number + delta
 
             case _:
                 raise Exception("Unknown preference")
@@ -49,78 +37,73 @@ class Task:
 
         return number, base
 
-    def translate_text(self, text_base):
-        self.text = Toolset.replace_underscores(text_base[f"task_{self.__type}"], self.__data)
+    @staticmethod
+    def get_text(text_base, user):
+        replacements = user.task_data.split("|")
+        return Toolset.replace_underscores(text_base[f"task_{user.task_type}"], replacements)
 
-        # if carry_to_next_line:
-        #     task_text = text_base[f"task_{self.__type}"].split("\n")[0]
-        #     replace_text = text_base[f"task_{self.__type}"].split("\n")[-1]
-        #     self.text = [task_text, Toolset.replace_underscores(replace_text, self.__data)]
-        # else:
-        #     replace_text = text_base[f"task_{self.__type}"]
-        #     self.text = [Toolset.replace_underscores(replace_text, self.__data)]
-
-    def translate_answer(self, text_base, ses):
-        if self.__last_answer_was_correct:
-            ses["user_result"] = text_base["correct"]
+    @staticmethod
+    def get_result(text_base, user):
+        if session.get("last_answer_correct"):
+            return text_base["correct"]
         else:
-            ses["user_result"] = text_base["incorrect"].replace("_", self.__format_correct_answer)
+            return text_base["incorrect"].replace("_", user.task_correct_answers.split("|")[-1])
 
-    def reset(self, task_type, text_base):
+    @staticmethod
+    def reset_task(task_type, user):
         match task_type:
             case 1:
-                self.__reset_task_1()
+                TaskManager.__reset_task_1(user)
             case 2:
-                self.__reset_task_2()
+                TaskManager.__reset_task_2(user)
             case _:
-                raise Exception(f"{self.__type} task doesn't exist")
+                raise Exception(f"{task_type} task doesn't exist")
 
-        print(self.__correct_answer)
+        user.task_type = task_type
+        db.session.commit()
 
-        self.__type = task_type
-        self.translate_text(text_base)
-
-    def get_correct_answer(self):
-        return self.__correct_answer
-
-    def check_answer(self, answer, text_base, ses):
-        if answer == self.__correct_answer:
-            ses["user_result"] = text_base["correct"]
-            ses["color"] = "#00b400"
-            self.__last_answer_was_correct = True
+    @staticmethod
+    def check_answer(answer, text_base, user):
+        correct_answers = user.task_correct_answers.split('|')
+        if answer == correct_answers[0]:
+            session["user_result"] = text_base["correct"]
+            session["color"] = Config.Right_Font_Color
+            session["last_answer_correct"] = True
+            # self.__last_answer_was_correct = True
             return True
         else:
-            ses["user_result"] = text_base["incorrect"].replace("_", self.__format_correct_answer)
-            ses["color"] = "#ff0000"
-            self.__last_answer_was_correct = False
+            session["user_result"] = text_base["incorrect"].replace("_", correct_answers[0])
+            session["color"] = "#ff0000"
+            session["last_answer_correct"] = False
+            # self.__last_answer_was_correct = False
             return False
 
-    def __reset_task_1(self):
-        from_number, from_base = Task.get_random_number_base()
+    @staticmethod
+    def __reset_task_1(user):
+        from_number, from_base = TaskManager.get_random_number_base()
 
-        to_base = random.choice(Task.__Bases_For_Task)
+        to_base = random.choice(TaskManager.__Bases_For_Task)
         while to_base == from_base:
-            to_base = random.choice(Task.__Bases_For_Task)
+            to_base = random.choice(TaskManager.__Bases_For_Task)
 
         to_number = Converter.get_converted_number(from_number, from_base, to_base)
 
-        # Сохраняем данные для задания
-        self.__data = [Toolset.get_number_with_base(from_number, from_base), str(to_base)]
-        self.__correct_answer = str(to_number)
-        self.__format_correct_answer = Toolset.get_number_with_base(to_number, to_base)
+        # Сохраняем данные задания для пользователя
+        user.task_data = "|".join([Toolset.get_number_with_base(from_number, from_base), str(to_base)])
+        user.task_correct_answers = "|".join([str(to_number), Toolset.get_number_with_base(to_number, to_base)])
 
-    def __reset_task_2(self):
-        first_comparison_sign, second_comparison_sign = random.choice(["<", "<="]), random.choice(["<", "<="])
+    @staticmethod
+    def __reset_task_2(user):
+        first_comparison_sign, second_comparison_sign = random.choice(["<", "≤"]), random.choice(["<", "≤"])
 
-        number_1, base_1 = Task.get_random_number_base("first_half")
+        number_1, base_1 = TaskManager.get_random_number_base("first_half")
         number_1_dec = int(str(number_1), base_1)
 
-        number_2, base_2 = Task.get_random_number_base("second_half")
+        number_2, base_2 = TaskManager.get_random_number_base("second_half")
         number_2_dec = int(str(number_2), base_2)
 
-
         while number_1_dec == number_2_dec:
-            number_2, base_2 = Task.get_random_number_base("second_half")
+            number_2, base_2 = TaskManager.get_random_number_base("second_half")
             number_2_dec = int(str(number_2), base_2)
 
         delta = number_2_dec - number_1_dec
@@ -131,11 +114,8 @@ class Task:
             else:
                 delta += 1
 
-        self.__correct_answer = str(delta)
-        self.__format_correct_answer = str(delta)
+        user.task_correct_answers = "|".join([str(delta), str(delta)])
 
         format_number_1 = Toolset.get_number_with_base(number_1, base_1)
         format_number_2 = Toolset.get_number_with_base(number_2, base_2)
-
-        self.__data = [format_number_1, first_comparison_sign, second_comparison_sign, format_number_2]
-        # print(self.__data)
+        user.task_data = "|".join([format_number_1, first_comparison_sign, second_comparison_sign, format_number_2])
