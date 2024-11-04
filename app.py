@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session
 from program import Program
 from user import User, db
@@ -6,8 +7,10 @@ from converter import Converter
 from config import Config
 from random import randint
 
+load_dotenv()
+
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY')
+app.secret_key = os.getenv("SECRET_KEY")
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -148,12 +151,18 @@ def register():
                 flash(program.Text_Base[lang]["different_passwords_alert"], "danger")
                 return redirect(url_for("register"))
 
+            print('sdfsdfs')
+
             new_user = User(username=username)
             new_user.set_password(password_1)
             new_user.language = session.get("language")
             new_user.theme = session.get("theme")
+            print(new_user.language, new_user.language)
+
             db.session.add(new_user)
             db.session.commit()
+
+            print('sdfsdfs')
 
             flash(program.Text_Base[lang]["registration_success"], "success")
             return redirect(url_for("login"))
@@ -203,7 +212,3 @@ def logout():
 
 if __name__ == "__main__":
     app.run(port=8080, host="127.0.0.1")
-
-
-
-
