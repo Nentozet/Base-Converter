@@ -92,6 +92,7 @@ def train():
 
     user_id = session.get("user_id")
     user = db.session.get(User, user_id)
+    print(user_id, user)
 
     if user.need_to_reset_task:
         program.reset_task(randint(1, 2), user)
