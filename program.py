@@ -16,7 +16,7 @@ class Program:
 
     @staticmethod
     def init():
-        if not session["language"] or not session["theme"]:
+        if not session.get("language") or not session.get("theme"):
             session["language"] = Config.Default_Language
             session["theme"] = Config.Default_Theme
 
