@@ -22,7 +22,7 @@ class User(db.Model):
     task_data = db.Column(db.String(128))
     task_correct_answers = db.Column(db.String(128))
     need_to_reset_task = db.Column(db.Boolean, default=True)
-    __password_hash = db.Column(db.String(128), nullable=False)
+    __password_hash = db.Column(db.Text, nullable=False)
     __skill_level = db.Column(db.Integer, default=0)
     __correct_tasks_in_a_row_count = db.Column(db.Integer, default=0)
     __incorrect_tasks_in_a_row_count = db.Column(db.Integer, default=0)
