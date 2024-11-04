@@ -43,7 +43,8 @@ def converter():
             to_base = request.form.get("to_base")
             number_to_convert = request.form.get("number_to_convert")
             try:
-                session["user_result"] = Converter.get_converted_number(number_to_convert, int(from_base), int(to_base))
+                converted_number = Converter.get_converted_number(number_to_convert, int(from_base), int(to_base))
+                session["conversion_result"] = converted_number
                 session["color"] = Config.Right_Font_Color
                 session["return_page"] = "converter"
                 flash("result_access_granted")
