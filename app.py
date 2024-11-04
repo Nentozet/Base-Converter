@@ -74,11 +74,18 @@ def result():
 
         return redirect(url_for("result"))
 
+    return_page = session.get("return_page")
     if "result_access_granted" not in get_flashed_messages():
-        return_page = session.get("return_page")
         return redirect(url_for(return_page))
 
-    user_result = program.get_task_result(user)
+    match return_page:
+        case "converter":
+            user_result = session.get("conversion_result")
+        case "train":
+            user_result = program.get_task_result(user)
+        case _:
+            raise Exception("Unknown source page")
+
     color = session.get("color")
     return_page = session.get("return_page")
 
@@ -116,6 +123,8 @@ def train():
             user.on_solved_task(res)
 
             return redirect(url_for("result"))
+
+    print(user.task_correct_answers.split("|")[-1])
 
     task_text = program.get_task_text(user)
     return program.get_rendered_template("train.html", user, task_text)
