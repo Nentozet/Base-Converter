@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session, g
+from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session
 from program import Program
 from user import User, db
 from converter import Converter
@@ -11,8 +11,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
-db_path = os.getenv('DATABASE_PATH', os.path.join(os.path.dirname(__file__), 'db', 'users.db'))
-app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DATABASE_PATH')
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
@@ -216,19 +215,6 @@ def logout():
 
     flash(text["logout_success"], "success")
     return redirect(url_for("login"))
-
-
-@app.before_request
-def before_request():
-    if 'db_connection' not in g:
-        g.db_connection = db.session
-
-
-@app.teardown_request
-def teardown_request(exception):
-    db.session.remove()
-    if hasattr(g, 'db_connection'):
-        g.pop('db_connection', None)
 
 
 if __name__ == "__main__":
