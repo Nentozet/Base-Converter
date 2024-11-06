@@ -6,6 +6,8 @@ from user import User, db
 from converter import Converter
 from config import Config
 from random import randint
+import threading
+import requests
 
 load_dotenv()
 
@@ -20,6 +22,15 @@ with app.app_context():
     db.create_all()
 
 program = Program()
+
+
+def keep_alive():
+    # Отправляем запрос к самому приложению
+    try:
+        requests.get("https://notationconverter.onrender.com")
+    except Exception as e:
+        print(f"Ошибка keep-alive: {e}")
+    threading.Timer(240, keep_alive).start()  # 600 секунд = 10 минут
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -218,4 +229,5 @@ def logout():
 
 
 if __name__ == "__main__":
+    keep_alive()
     app.run(port=8080, host="127.0.0.1")
