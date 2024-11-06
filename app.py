@@ -30,7 +30,7 @@ def keep_alive():
         requests.get("https://notationconverter.onrender.com")
     except Exception as e:
         print(f"Ошибка keep-alive: {e}")
-    threading.Timer(240, keep_alive).start()  # 600 секунд = 10 минут
+    threading.Timer(180, keep_alive).start()  # 600 секунд = 10 минут
 
 
 @app.route("/", methods=["GET", "POST"])
