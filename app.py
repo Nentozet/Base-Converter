@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session
+from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session, g
 from program import Program
 from user import User, db
 from converter import Converter
@@ -216,6 +216,19 @@ def logout():
 
     flash(text["logout_success"], "success")
     return redirect(url_for("login"))
+
+
+@app.before_request
+def before_request():
+    if 'db_connection' not in g:
+        g.db_connection = db.session
+
+
+@app.teardown_request
+def teardown_request(exception):
+    db.session.remove()
+    if hasattr(g, 'db_connection'):
+        g.pop('db_connection', None)
 
 
 if __name__ == "__main__":
