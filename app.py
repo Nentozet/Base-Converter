@@ -29,7 +29,7 @@ def keep_alive():
         requests.get("https://base-converter.onrender.com")
     except Exception as e:
         print(f"Ошибка keep-alive: {e}")
-    threading.Timer(60, keep_alive).start()
+    threading.Timer(30, keep_alive).start()
 
 
 keep_alive()
