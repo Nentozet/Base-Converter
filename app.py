@@ -32,6 +32,9 @@ def keep_alive():
     threading.Timer(10, keep_alive).start()
 
 
+keep_alive()
+
+
 @app.route("/", methods=["GET", "POST"])
 @app.route("/converter", methods=["GET", "POST"])
 def converter():
@@ -225,8 +228,4 @@ def logout():
 
     flash(text["logout_success"], "success")
     return redirect(url_for("login"))
-
-
-if __name__ == "__main__":
-    keep_alive()
-    app.run(port=8080, host="127.0.0.1")
+    
