@@ -50,10 +50,10 @@
   {
     "language": "English",
 
-    "converter_title": "Notation converter",
-    "from_base": "From notation",
+    "converter_title": "Base converter",
+    "from_base": "From base",
     "converter_placeholder_text": "Enter the base",
-    "to_base": "To notation",
+    "to_base": "To base",
     "number_to_convert": "Number to convert",
     "convert": "Convert",
     "train": "Train",
@@ -97,10 +97,10 @@
   {
     "language": "Deutsch",
 
-    "converter_title": "Notationskonverter",
-    "from_base": "Aus der Notation",
+    "converter_title": "Zahlensystem-Konverter",
+    "from_base": "Aus dem Zahlensystem",
     "converter_placeholder_text": "Geben Sie die Basis ein",
-    "to_base": "Zur Notation",
+    "to_base": "Zum Zahlensystem",
     "number_to_convert": "Zu konvertierende Zahl",
     "convert": "Konvertieren",
     "train": "Üben",
@@ -144,10 +144,10 @@
   {
     "language": "Français",
 
-    "converter_title": "Convertisseur de notations",
-    "from_base": "De la notation",
+    "converter_title": "Convertisseur de systèmes numériques",
+    "from_base": "Du système numérique",
     "converter_placeholder_text": "Entrez la base",
-    "to_base": "Notation",
+    "to_base": "au système numérique",
     "number_to_convert": "Nombre à convertir",
     "convert": "Convertir",
     "train": "S'entraîner",
@@ -192,9 +192,9 @@
     "language": "日本語",
 
     "converter_title": "表記コンバータ",
-    "from_base": "表記より",
+    "from_base": "番号体系から",
     "converter_placeholder_text": "基数を入力してください",
-    "to_base": "表記へ",
+    "to_base": "番号体系へ",
     "number_to_convert": "変換する数値",
     "convert": "変換する",
     "train": "練習する",
