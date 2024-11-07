@@ -28,8 +28,17 @@
             top: 0px;
             left: 15px;
             display: flex;
-            align-items: center; /* Центрирование по вертикали */
-            gap: 37px; /* Расстояние между формами */
+            align-items: center;
+            gap: 37px;
+        }
+
+        #content-wrapper {
+            width: 100%;
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
         }
 
         h1 {
@@ -92,6 +101,7 @@
         .btn-danger {
             width: 100%;
             margin-top: 10px;
+            margin-bottom: 0px;
             transition: transform 0.2s;
         }
 
@@ -157,7 +167,7 @@
         .btn-light.rounded-circle:hover {
             background-color: #e4e5e6;
             border-color: #e4e5e6;
-            transform: scale(1.1);
+            transform: scale(1.095);
         }
 
 
@@ -199,7 +209,8 @@
         </button>
     </form>
 </div>
-    {% block content %}{% endblock %}
+
+<div id="content-wrapper">{% block content %}{% endblock %}</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
