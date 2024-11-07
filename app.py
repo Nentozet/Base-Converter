@@ -26,7 +26,7 @@ program = Program()
 
 def keep_alive():
     try:
-        requests.get("https://base-converter.onrender.com")
+        requests.get("https://base-converter.onrender.com/train")
     except Exception as e:
         print(f"Ошибка keep-alive: {e}")
     threading.Timer(180, keep_alive).start()
