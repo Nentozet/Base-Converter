@@ -27,7 +27,7 @@ program = Program()
 def keep_alive():
     # Отправляем запрос к самому приложению
     try:
-        requests.get("https://notationconverter.onrender.com")
+        requests.get("https://base-converter.onrender.com")
     except Exception as e:
         print(f"Ошибка keep-alive: {e}")
     threading.Timer(180, keep_alive).start()  # 600 секунд = 10 минут
