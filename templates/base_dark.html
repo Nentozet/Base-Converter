@@ -34,6 +34,15 @@
             gap: 37px;
         }
 
+        #content-wrapper {
+            width: 100%;
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+
         h1 {
             text-align: center;
             color: #ececec;
@@ -118,6 +127,7 @@
         }
 
         .btn-dark:focus {
+            background-color: #2f2f2f;
             color: #ececec;
             transform: scale(1.07);
         }
@@ -196,7 +206,7 @@
         .btn-dark.rounded-circle:hover {
             background-color: #212121;
             border-color: #212121;
-            transform: scale(1.10);
+            transform: scale(1.095);
             transition: transform 0.2s;
         }
 
@@ -239,7 +249,7 @@
     </form>
 </div>
 
-{% block content %}{% endblock %}
+<div id="content-wrapper">{% block content %}{% endblock %}</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
