@@ -44,20 +44,20 @@
         }
 
         h1 {
-            text-align: center;
             color: #ececec;
+            text-align: center;
             margin-bottom: 30px;
         }
 
         p {
-            font-weight: 500;
             color: #ececec;
+            font-weight: 500;
         }
 
         .form-group label {
+            color: #ececec;
             font-size: 16px;
             font-weight: 500;
-            color: #ececec;
         }
 
         .custom-alert {
@@ -86,65 +86,57 @@
         }
 
         .btn-success {
-            transition: transform 0.2s;
+            box-shadow: none !important;
             color: #ececec;
-            background-color: #149332;
-            border-color: #149332;
+            background-color: #0d7e2f;
+            border-color: #0d7e2f;
             width: 100%;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
         }
 
-        .btn-success:hover {
+        .btn-success:hover, .btn-success:focus, .btn-success:active {
             color: #ececec;
-            background-color: #0d7424;
-            border-color: #0d7424;
+            background-color: #08792a !important;
+            border-color: #08792a !important;
             transform: scale(1.01);
             transition: transform 0.2s;
         }
 
-        .btn-success:focus {
-            color: #ececec;
-            background-color: #0d7424;
-            border-color: #0d7424;
-        }
-
         .btn-dark {
+            box-shadow: none !important;
             background-color: #2f2f2f;
             border: 1px solid #2f2f2f;
             color: #ececec;
-            width: 120%;
-            margin-top: 10px;
+            width: 125%;
+            transform: scale(1);
             transition: transform 0.2s;
         }
 
-        .btn-dark:hover {
-            background-color: #2f2f2f;
-            border: 1px solid #2f2f2f;
+        .btn-dark:hover, .btn-dark:focus, .btn-dark:active {
+            background-color: #2f2f2f !important;
+            border: 1px solid #2f2f2f !important;
             color: #ececec;
-            width: 120%;
-            margin-top: 10px;
-            transform: scale(1.07);
+            width: 125%;
+            transform: scale(1.065);
             transition: transform 0.2s;
         }
 
-        .btn-dark:focus {
-            background-color: #2f2f2f;
-            color: #ececec;
-            transform: scale(1.07);
-        }
 
         .btn-danger {
+            box-shadow: none !important;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 0px;
             color: #ececec;
-            background-color: #c82132;
-            border-color: #c82132;
+            background-color: #be1728;
+            border-color: #be1728;
             transition: transform 0.2s;
         }
 
-        .btn-danger:hover {
+        .btn-danger:hover, .btn-danger:focus, .btn-danger:active {
             color: #ececec;
-            background-color: #b40f1f;
-            border-color: #b40f1f;
+            background-color: #b91223 !important;
+            border-color: #b91223 !important;
             transform: scale(1.01);
             transition: transform 0.2s;
         }
@@ -158,7 +150,7 @@
             background-clip: padding-box;
             border: 1px solid #2f2f2f;
             border-radius: .25rem;
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, transform 0.2s;
             font-size: 16.5px;
         }
 
@@ -173,7 +165,7 @@
 
         .dropdown-menu {
             background-color: #212121;
-            width: 128.5%;
+            width: 130%;
             min-width: 0;
             box-shadow: 0 8px 16px rgba(50, 50, 50, 0.2);
         }
@@ -182,76 +174,172 @@
             color: #ececec;
             border-radius: .25rem;
             transition: transform 0.2s;
+            height: 40px;
         }
 
-        .dropdown-item:hover {
+        .dropdown-item:hover, .dropdown-item:focus, .dropdown-item:active {
+            box-shadow: none !important;
+            outline: none;
             color: #ececec;
             background-color: #2f2f2f;
             transform: scale(1.05);
             perspective: 1px;
         }
 
-        .btn-dark.rounded-circle {
+        .btn-dark.rounded-circle.custom {
+            box-shadow: none !important;
+            outline: none;
             margin-top: 10px;
-            background-color: #171717;
-            border-color: #171717;
+            background-color: #171717 !important;
+            border-color: #171717 !important;
+            color: #ececec;
             display: flex;
             align-items: center;
             justify-content: center;
+            transform: scale(1);
             width: 45px;
             height: 45px;
             transition: transform 0.2s;
         }
 
-        .btn-dark.rounded-circle:hover {
-            background-color: #212121;
-            border-color: #212121;
-            transform: scale(1.095);
+        .btn-dark.rounded-circle.custom:hover {
+            background-color: #171717 !important;
+            border-color: #171717 !important;
+            color: #ececec;
+            transform: scale(1.15);
             transition: transform 0.2s;
         }
+
+        .account-panel {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            padding: 0.5rem 1rem;
+        }
+
+        .dropdown-menu-account {
+            background-color: #212121;
+            width: 85%;
+            min-width: 0;
+            box-shadow: 0 8px 16px rgba(50, 50, 50, 0.2);
+        }
+
+        .dropdown-menu-account {
+            background-color: #212121;
+            width: 200px;
+            border: 1px solid #444;
+            padding: 15px;
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 10px;
+            box-shadow: 0 8px 16px rgba(50, 50, 50, 0.2);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu-account.active {
+            display: block;
+        }
+
+        .dropdown-divider {
+            height: 2px;
+            background-color: #444;
+            margin: 10px 0;
+        }
+
+        .dropdown-item-custom {
+            display: block;
+            color: #ececec;
+            padding: 8px;
+            background-color: transparent;
+            border-radius: .25rem;
+            border: none;
+            text-align: left;
+            width: 100%;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item-custom:hover, .dropdown-item-custom:focus, .dropdown-item-custom:active {
+            box-shadow: none !important;
+            outline: none;
+            background-color: #2f2f2f;
+        }
+
 
         {% block styles %}{% endblock %}
     </style>
 </head>
 <body>
-<div class="custom-container">
-    <div class="language-selector dropdown">
-        <form id="langForm" method="POST">
-            <input type="hidden" name="action" value="change_language">
-            <button class="btn btn-dark" type="button" data-toggle="dropdown">
-                <span class="flag-icon flag-icon-{{ icon }}"></span> {{ language }}
+    {% if username_ %}
+        <div class="account-panel dropdown">
+            <button id="account-btn" class="btn btn-dark rounded-circle custom" type="button" style="margin-top: 0px;">
+                <i class="bi bi-person-circle" style="font-size: 40px; position: absolute; right 20px"></i>
             </button>
-            <div class="dropdown-menu">
-                <button class="dropdown-item" type="submit" name="lang" value="ru">
-                    <span class="flag-icon flag-icon-ru"></span> Русский
-                </button>
-                <button class="dropdown-item" type="submit" name="lang" value="gb">
-                    <span class="flag-icon flag-icon-gb"></span> English
-                </button>
-                <button class="dropdown-item" type="submit" name="lang" value="de">
-                    <span class="flag-icon flag-icon-de"></span> Deutsch
-                </button>
-                <button class="dropdown-item" type="submit" name="lang" value="fr">
-                    <span class="flag-icon flag-icon-fr"></span> Français
-                </button>
-                <button class="dropdown-item" type="submit" name="lang" value="jp">
-                    <span class="flag-icon flag-icon-jp"></span> 日本語
-                </button>
+            <div class="dropdown-menu-account" id="account-panel">
+                <p>{{username_}}</p>
+                <div class="dropdown-divider"></div>
+    <!--            <a class="dropdown-item-custom">Профиль</a>-->
+                <button onclick="location.href='/logout'" class="dropdown-item-custom" style="color: #ff3232;">{{logout}}</button>
             </div>
+        </div>
+    {% endif %}
+
+    <script>
+        const accountBtn = document.getElementById("account-btn");
+        const accountPanel = document.getElementById("account-panel");
+
+        accountBtn.addEventListener("click", function(event) {
+            event.stopPropagation();
+            accountPanel.classList.toggle("active");
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!accountPanel.contains(event.target) && event.target !== accountBtn) {
+                accountPanel.classList.remove("active");
+            }
+        });
+    </script>
+    
+    <div class="custom-container">
+        <div class="language-selector dropdown">
+            <form method="POST">
+                <input type="hidden" name="action" value="change_language">
+                <button class="btn btn-dark" type="button" data-toggle="dropdown" style="height: 40px; margin-top: 11px">
+                    <span class="flag-icon flag-icon-{{ icon }}"></span> {{ language }}
+                </button>
+                <div class="dropdown-menu">
+                    <button class="dropdown-item" type="submit" name="lang" value="ru">
+                        <span class="flag-icon flag-icon-ru"></span> Русский
+                    </button>
+                    <button class="dropdown-item" type="submit" name="lang" value="gb">
+                        <span class="flag-icon flag-icon-gb"></span> English
+                    </button>
+                    <button class="dropdown-item" type="submit" name="lang" value="de">
+                        <span class="flag-icon flag-icon-de"></span> Deutsch
+                    </button>
+                    <button class="dropdown-item" type="submit" name="lang" value="fr">
+                        <span class="flag-icon flag-icon-fr"></span> Français
+                    </button>
+                    <button class="dropdown-item" type="submit" name="lang" value="jp">
+                        <span class="flag-icon flag-icon-jp"></span> 日本語
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <form id="themeForm" method="POST">
+            <input type="hidden" name="action" value="switch_theme_light">
+            <button type="submit" class="btn btn-dark rounded-circle custom">
+                <i class="bi bi-sun" style="font-size: 30px;"></i>
+            </button>
         </form>
     </div>
 
-    <form id="themeForm" method="POST">
-        <input type="hidden" name="action" value="switch_theme_light">
-        <button type="submit" class="btn btn-dark rounded-circle p-0 d-flex align-items-center justify-content-center">
-            <i class="bi bi-sun" style="font-size: 30px;"></i>
-        </button>
-    </form>
-</div>
+    <div id="content-wrapper">{% block content %}{% endblock %}</div>
 
-<div id="content-wrapper">{% block content %}{% endblock %}</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
