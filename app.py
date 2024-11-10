@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session
 from converter import Converter
 from config import Config
+from toolset import Toolset
 from program import Program
 from random import randint
 from user import User, db
@@ -20,6 +21,8 @@ with app.app_context():
     db.create_all()
 
 program = Program()
+
+Toolset.keep_alive()
 
 
 @app.route("/", methods=["GET", "POST"])
