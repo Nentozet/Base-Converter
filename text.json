@@ -5,7 +5,8 @@
 
     "converter_title": "Конвертер систем счисления",
     "from_base": "Из системы счисления",
-    "converter_placeholder_text": "Введите основание",
+    "converter_placeholder_text_number": "Введите число",
+    "converter_placeholder_text_base": "Введите основание",
     "to_base": "В систему счисления",
     "number_to_convert": "Число для преобразования",
     "convert": "Сконвертировать",
@@ -38,8 +39,8 @@
     "offer_to_register_2": "Зарегистрируйтесь",
     "logout": "Выйти",
 
-    "convertion_error": "Ошибка конвертации! Перероверьте введеные значения",
-    "repeated_username_alert": "Пользователь уже существует",
+    "convertion_error": "Ошибка конвертации! Перепроверьте введенные значения",
+    "existed_username_alert": "Пользователь уже существует",
     "different_passwords_alert": "Пароли не совпадают",
     "registration_success": "Регистрация прошла успешно. Теперь вы можете войти",
     "invalid_login_data": "Неверные данные для входа",
@@ -52,7 +53,8 @@
 
     "converter_title": "Base converter",
     "from_base": "From base",
-    "converter_placeholder_text": "Enter the base",
+    "converter_placeholder_text_number": "Enter the number",
+    "converter_placeholder_text_base": "Enter the base",
     "to_base": "To base",
     "number_to_convert": "Number to convert",
     "convert": "Convert",
@@ -86,7 +88,7 @@
     "logout": "Logout",
 
     "convertion_error": "Conversion error! Please check the entered values",
-    "repeated_username_alert": "User already exists",
+    "existed_username_alert": "User already exists",
     "different_passwords_alert": "Passwords do not match",
     "registration_success": "Registration successful. You can now log in",
     "invalid_login_data": "Invalid login credentials",
@@ -99,7 +101,8 @@
 
     "converter_title": "Zahlensystem-Konverter",
     "from_base": "Aus dem Zahlensystem",
-    "converter_placeholder_text": "Geben Sie die Basis ein",
+    "converter_placeholder_text_number": "Nummer eingeben",
+    "converter_placeholder_text_base": "Geben Sie die Basis ein",
     "to_base": "Zum Zahlensystem",
     "number_to_convert": "Zu konvertierende Zahl",
     "convert": "Konvertieren",
@@ -133,7 +136,7 @@
     "logout": "Abmelden",
 
     "convertion_error": "Konvertierungsfehler! Bitte überprüfen Sie die eingegebenen Werte",
-    "repeated_username_alert": "Benutzer existiert bereits",
+    "existed_username_alert": "Benutzer existiert bereits",
     "different_passwords_alert": "Passwörter stimmen nicht überein",
     "registration_success": "Registrierung erfolgreich. Sie können sich jetzt anmelden",
     "invalid_login_data": "Ungültige Anmeldedaten",
@@ -146,7 +149,8 @@
 
     "converter_title": "Convertisseur de systèmes numériques",
     "from_base": "Du système numérique",
-    "converter_placeholder_text": "Entrez la base",
+    "converter_placeholder_text_number": "Entrez le numéro",
+    "converter_placeholder_text_base": "Entrez la base",
     "to_base": "au système numérique",
     "number_to_convert": "Nombre à convertir",
     "convert": "Convertir",
@@ -180,7 +184,7 @@
     "logout": "Déconnexion",
 
     "convertion_error": "Erreur de conversion ! Veuillez vérifier les valeurs saisies",
-    "repeated_username_alert": "L'utilisateur existe déjà",
+    "existed_username_alert": "L'utilisateur existe déjà",
     "different_passwords_alert": "Les mots de passe ne correspondent pas",
     "registration_success": "Inscription réussie. Vous pouvez maintenant vous connecter",
     "invalid_login_data": "Identifiants de connexion incorrects",
@@ -193,7 +197,8 @@
 
     "converter_title": "表記コンバータ",
     "from_base": "番号体系から",
-    "converter_placeholder_text": "基数を入力してください",
+    "converter_placeholder_text_number": "番号を入力してください",
+    "converter_placeholder_text_base": "基数を入力してください",
     "to_base": "番号体系へ",
     "number_to_convert": "変換する数値",
     "convert": "変換する",
@@ -227,7 +232,7 @@
     "logout": "ログアウト",
 
     "convertion_error": "変換エラー！入力された値を確認してください",
-    "repeated_username_alert": "ユーザーは既に存在します",
+    "existed_username_alert": "ユーザーは既に存在します",
     "different_passwords_alert": "パスワードが一致しません",
     "registration_success": "登録が成功しました。ログインできます",
     "invalid_login_data": "無効なログイン情報",
