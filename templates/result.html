@@ -5,7 +5,7 @@
 
 
 {% block styles %}
-    p {
+    .p-result {
       font-size: 44px;
       color: {{color}};
       font-weight: 575;
@@ -20,7 +20,7 @@
 {% block content %}
     <div class="container">
       <h1>{{result_title}}</h1>
-      <p>{{user_result}}</p>
+      <p class="p-result">{{user_result}}</p>
       <a href="/{{return_page}}" class="btn btn-danger">{{back}}</a>
     </div>
 {% endblock %}
