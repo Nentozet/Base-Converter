@@ -15,26 +15,29 @@
     <div class="container">
         <h1>{{converter_title}}</h1>
 
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="alert alert-{{ category }} custom-alert">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} custom-alert">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
         <form method="post">
             <div class="form-group">
+                <label for="number_to_convert">{{number_to_convert}}:</label>
+                <input type="text" class="custom-input" name="number_to_convert" id="number_to_convert"
+                       placeholder="{{converter_placeholder_text_number}}" autocomplete="off" required>
+            </div>
+            <div class="form-group">
                 <label for="from_base">{{from_base}}:</label>
                 <input class="custom-input" name="from_base" id="from_base"
-                       placeholder="{{converter_placeholder_text}}" autocomplete="off" required>
+                       placeholder="{{converter_placeholder_text_base}}" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <label for="to_base">{{to_base}}:</label>
                 <input class="custom-input" name="to_base" id="to_base"
-                       placeholder="{{converter_placeholder_text}}" autocomplete="off" required>
-            </div>
-            <div class="form-group">
-                <label for="number_to_convert">{{number_to_convert}}:</label>
-                <input type="text" class="custom-input" name="number_to_convert" id="number_to_convert" autocomplete="off" required>
+                       placeholder="{{converter_placeholder_text_base}}" autocomplete="off" required>
             </div>
             <button type="submit" class="btn btn-success">{{convert}}</button>
             <a href="/train" class="btn btn-danger">{{train}}</a>
