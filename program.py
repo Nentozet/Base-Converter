@@ -56,18 +56,21 @@ class Program:
     def get_task_result(self, user):
         return self.task_manager.get_result(self.Text_Base[user.language], user)
 
-    def get_rendered_template(self, filename, user, *args):
+    def get_rendered_template(self, filename, user=0, *args):
         # !!! В качестве аргументов этой функции должны передаваться переменные с таким же названием, что и в html-файле
         if user:
             theme = user.theme
             language = user.language
+            username_ = user.username
         else:
             theme = session.get("theme")
             language = session.get("language")
+            username_ = 0
 
         data = {
             "base_filename": f"base_{theme}.html",
             "icon": language,
+            "username_": username_,
             **self.Text_Base[language]
         }
 
