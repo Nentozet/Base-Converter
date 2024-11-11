@@ -2,10 +2,10 @@ import os
 from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session
 from converter import Converter
 from config import Config
-from toolset import Toolset
 from program import Program
 from random import randint
 from user import User, db
+from toolset import Toolset
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -48,7 +48,7 @@ def converter():
             try:
                 converted_number = Converter.get_converted_number(number_to_convert, int(from_base), int(to_base))
                 session["conversion_result"] = converted_number
-                session["color"] = Config.Right_Font_Color
+                session["color"] = Config.Correct_Font_Color
                 session["return_page"] = "converter"
                 flash("result_access_granted")
                 return redirect(url_for("result"))
@@ -62,9 +62,6 @@ def converter():
 @app.route("/result", methods=["GET", "POST"])
 def result():
     program.init()
-
-    if "user_id" not in session:
-        return redirect(url_for("login"))
 
     user_id = session.get("user_id")
     user = db.session.get(User, user_id)
