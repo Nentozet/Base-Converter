@@ -4,26 +4,28 @@
     "language": "Русский",
 
     "converter_title": "Конвертер систем счисления",
+    "converter_link": "Конвертер",
     "from_base": "Из системы счисления",
     "converter_placeholder_text_number": "Введите число",
     "converter_placeholder_text_base": "Введите основание",
     "to_base": "В систему счисления",
     "number_to_convert": "Число для преобразования",
     "convert": "Сконвертировать",
-    "train": "Потренироваться",
     "task_placeholder_text": "Введите полученное число",
     "check": "Проверить ответ",
     "return": "Вернуться",
+
+    "calculator_title": "Калькулятор",
+
+    "train_title": "Тренировка",
+    "task_1": "Переведите число _ в систему счисления _ (основание в ответе указывать не нужно)",
+    "task_2": "Сколько целых чисел x удовлетворяет этому двойному неравенству: \n_ _ x _ _?",
 
     "conversion_result_title": "Результат преобразования",
     "result_title": "Результат",
     "back": "Вернуться",
     "correct": "Верно",
     "incorrect": "Неверно. Правильный ответ: _",
-
-    "train_title": "Тренировка",
-    "task_1": "Переведите число _ в систему счисления _ (основание в ответе указывать не нужно)",
-    "task_2": "Сколько целых чисел x удовлетворяет этому двойному неравенству: \n_ _ x _ _?",
 
     "registration_title": "Создайте аккаунт",
     "username": "Имя пользователя",
@@ -52,6 +54,7 @@
     "language": "English",
 
     "converter_title": "Base converter",
+    "converter_link": "Converter",
     "from_base": "From base",
     "converter_placeholder_text_number": "Enter the number",
     "converter_placeholder_text_base": "Enter the base",
@@ -63,15 +66,17 @@
     "check": "Check the answer",
     "return": "Return",
 
+    "calculator_title": "Calculator",
+
+    "train_title": "Training",
+    "task_1": "Convert the number _ to base _ (the base does not need to be specified in the answer)",
+    "task_2": "How many integers x satisfy this double inequality: \n_ _ x _ _?",
+
     "conversion_result_title": "Сonversion result",
     "result_title": "Result",
     "back": "Back",
     "correct": "Correctly",
     "incorrect": "Wrong. The correct answer is: _",
-
-    "train_title": "Training",
-    "task_1": "Convert the number _ to base _ (the base does not need to be specified in the answer)",
-    "task_2": "How many integers x satisfy this double inequality: \n_ _ x _ _?",
 
     "registration_title": "Create an account",
     "username": "Username",
@@ -100,26 +105,28 @@
     "language": "Deutsch",
 
     "converter_title": "Zahlensystem-Konverter",
+    "converter_link": "Konverter",
     "from_base": "Aus dem Zahlensystem",
     "converter_placeholder_text_number": "Nummer eingeben",
     "converter_placeholder_text_base": "Geben Sie die Basis ein",
     "to_base": "Zum Zahlensystem",
     "number_to_convert": "Zu konvertierende Zahl",
     "convert": "Konvertieren",
-    "train": "Üben",
     "task_placeholder_text": "Geben Sie die Nummer ein, die Sie erhalten haben",
     "check": "Antwort prüfen",
     "return": "Zurückkehren",
+
+    "calculator_title": "Kalkulator",
+
+    "train_title": "Training",
+    "task_1": "Wandeln Sie die Zahl _ in das Zahlensystem _ um (die Basis muss in der Antwort nicht angegeben werden)",
+    "task_2": "Wie viele ganze Zahlen x erfüllen diese doppelte Ungleichung: \n_ _ x _ _?",
 
     "conversion_result_title": "Konvertierungsergebnis",
     "result_title": "Ergebnis",
     "back": "Zurück",
     "correct": "Rechts",
     "incorrect": "Das ist falsch. Die richtige Antwort lautet: _",
-
-    "train_title": "Training",
-    "task_1": "Wandeln Sie die Zahl _ in das Zahlensystem _ um (die Basis muss in der Antwort nicht angegeben werden)",
-    "task_2": "Wie viele ganze Zahlen x erfüllen diese doppelte Ungleichung: \n_ _ x _ _?",
 
     "registration_title": "Ein Konto erstellen",
     "username": "Benutzername",
@@ -148,26 +155,28 @@
     "language": "Français",
 
     "converter_title": "Convertisseur de systèmes numériques",
+    "converter_link": "Convertisseur",
     "from_base": "Du système numérique",
     "converter_placeholder_text_number": "Entrez le numéro",
     "converter_placeholder_text_base": "Entrez la base",
-    "to_base": "au système numérique",
+    "to_base": "Au système numérique",
     "number_to_convert": "Nombre à convertir",
     "convert": "Convertir",
-    "train": "S'entraîner",
     "task_placeholder_text": "Entrez le numéro reçu",
     "check": "Vérifier la réponse",
     "return": "Retour",
+
+    "calculator_title": "Calculatrice",
+
+    "train_title": "Entraînement",
+    "task_1": "Convertir le chiffre _ en système numérique _ (il n'est pas nécessaire d'indiquer la base dans la réponse)",
+    "task_2": "Combien de nombres entiers x satisfont cette double inégalité : \n_ _ x _ _?",
 
     "conversion_result_title": "Résultat de la conversion",
     "result_title": "Résultat",
     "back": "Retour",
     "correct": "Droite",
     "incorrect": "C'est faux. La bonne réponse est : _",
-
-    "train_title": "Entraînement",
-    "task_1": "Convertir le chiffre _ en système numérique _ (il n'est pas nécessaire d'indiquer la base dans la réponse)",
-    "task_2": "Combien de nombres entiers x satisfont cette double inégalité : \n_ _ x _ _?",
 
     "registration_title": "Créer un compte",
     "username": "Nom d'utilisateur",
@@ -196,26 +205,28 @@
     "language": "日本語",
 
     "converter_title": "表記コンバータ",
+    "converter_link": "コンバータ",
     "from_base": "番号体系から",
     "converter_placeholder_text_number": "番号を入力してください",
     "converter_placeholder_text_base": "基数を入力してください",
     "to_base": "番号体系へ",
     "number_to_convert": "変換する数値",
     "convert": "変換する",
-    "train": "練習する",
     "task_placeholder_text": "受信した番号を入力してください",
     "check": "答えを確認する",
     "return": "戻る",
+
+    "calculator_title": "電卓",
+
+    "train_title": "トレーニング",
+    "task_1": "数値 _ を数体系 _ に変換します (解答には基数を指定する必要はありません)",
+    "task_2": "この二重不等式を満たす整数 x はいくつありますか: \n_ _ x _ _?",
 
     "conversion_result_title": "変換結果",
     "result_title": "結果",
     "back": "戻る",
     "correct": "右",
     "incorrect": "それは不正解です。正解は次のとおりです。 _",
-
-    "train_title": "トレーニング",
-    "task_1": "数値 _ を数体系 _ に変換します (解答には基数を指定する必要はありません)",
-    "task_2": "この二重不等式を満たす整数 x はいくつありますか: \n_ _ x _ _?",
 
     "registration_title": "アカウントを作成する",
     "username": "ユーザー名",
