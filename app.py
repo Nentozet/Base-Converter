@@ -56,7 +56,8 @@ def converter():
                 flash(program.Text_Base[lang]["convertion_error"], "danger")
                 return redirect(url_for("converter"))
 
-    return program.get_rendered_template("converter.html", user)
+    converter_checked = "checked"
+    return program.get_rendered_template("converter.html", user, converter_checked)
 
 
 @app.route("/result", methods=["GET", "POST"])
@@ -127,7 +128,8 @@ def train():
     print(user.task_correct_answers.split("|")[-1])
 
     task_text = program.get_task_text(user)
-    return program.get_rendered_template("train.html", user, task_text)
+    train_checked = "checked"
+    return program.get_rendered_template("train.html", user, task_text, train_checked)
 
 
 @app.route("/register", methods=["GET", "POST"])
