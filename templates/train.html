@@ -7,7 +7,7 @@
 {% block styles %}
     .container {
         min-width: 800px;
-        height: 350px;
+        padding-bottom: 5px;
     }
 
     .form-group label {
@@ -30,11 +30,11 @@
                         <label style="text-align: center;">{{ separated_text[-1] }}</label>
                     {% endif %}
                  </div>
-                <input type="text" class="custom-input" name="answer" id="answer" style="margin-top: 20px; margin-bottom: 5px"
+                <input type="text" class="custom-input" name="answer" id="answer" style="margin-top: 20px; margin-bottom: 10px"
                        placeholder="{{ task_placeholder_text }}" autocomplete="off" required>
                 <button type="submit" class="btn btn-success" style="margin-top: 10px">{{ check }}</button>
-                <a href="/converter" class="btn btn-danger mr-2" >{{ back }}</a>
             </div>
         </form>
     </div>
 {% endblock %}
+
