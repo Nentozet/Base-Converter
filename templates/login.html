@@ -8,6 +8,10 @@
     a {
         color: #28a645;
     }
+
+    .container {
+        padding-bottom: 5px;
+    }
 {% endblock %}
 
 
@@ -32,7 +36,7 @@
                 <label for="password">{{password}}</label>
                 <input type="password" class="custom-input" id="password" name="password" placeholder="{{enter_password}}" autocomplete="off" required>
             </div>
-            <button type="submit" class="btn btn-success" style="margin-bottom: 0px">{{login}}</button>
+            <button type="submit" class="btn btn-success" style="margin-bottom: 5px">{{login}}</button>
             <p>{{offer_to_register_1}}<a href="{{ url_for('register') }}">{{offer_to_register_2}}</a></p>
         </form>
     </div>
