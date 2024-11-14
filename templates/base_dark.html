@@ -48,6 +48,7 @@
             color: #ececec;
             text-align: center;
             margin-bottom: 30px;
+            cursor: default;
         }
 
         p {
@@ -306,6 +307,47 @@
             text-decoration-color: #ececec;
             text-decoration-thickness: 3px;
             text-underline-offset: 15px
+        }
+
+        .select {
+            background: #333333;
+            border: 1px #333333;
+            color: #ececec;
+        }
+
+        .select:hover {
+            background: #595959;
+        }
+
+        .menu {
+            background: #404040;
+            color: #666666;
+        }
+
+        .menu::-webkit-scrollbar-track {
+            background: #595959;
+        }
+
+        .menu::-webkit-scrollbar-thumb {
+            background: #999999;
+        }
+
+        .menu::-webkit-scrollbar-thumb:hover {
+            background: #808080;
+        }
+
+        .menu li:hover {
+            background: #2f2f2f;
+            color: #ececec;
+        }
+
+        .operator-active {
+            background: #2f2f2f;
+            color: #ececec;
+        }
+
+        .menu-open {
+            border: 1px #404040 solid;
         }
 
         {% block styles %}{% endblock %}
