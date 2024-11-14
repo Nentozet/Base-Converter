@@ -48,6 +48,7 @@
             color: #495057;
             text-align: center;
             margin-bottom: 30px;
+            cursor: default;
         }
 
         p {
@@ -278,6 +279,53 @@
             text-decoration-color: #495057;
             text-decoration-thickness: 3px;
             text-underline-offset: 15px
+        }
+
+        .select {
+            background: #ffffff;
+            border: 1px #ced4da solid;
+            color: #495057;
+        }
+
+        .select:hover {
+            background: #cccccc;
+        }
+
+        .menu {
+            background: #ffffff;
+            border-color: #ced4da !important;
+            color: #c3c3c3;
+        }
+
+        .menu::-webkit-scrollbar-track {
+            background: #b3b3b3;
+        }
+
+        .menu::-webkit-scrollbar-thumb {
+            background: #8c8c8c;
+        }
+
+        .menu::-webkit-scrollbar-thumb:hover {
+            background: #666666;
+        }
+
+        .menu li {
+            background: #ffffff;
+            color: #c3c3c3;
+        }
+
+        .menu li:hover {
+            background: #cccccc;
+            color: #495057;
+        }
+
+        .operator-active {
+            background: #2f2f2f;
+            color: #ececec;
+        }
+
+        .menu-open {
+            border: 1px #404040 solid;
         }
 
         {% block styles %}{% endblock %}
