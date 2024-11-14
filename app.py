@@ -60,37 +60,25 @@ def converter():
     return program.get_rendered_template("converter.html", user, converter_checked)
 
 
-@app.route("/result", methods=["GET", "POST"])
-def result():
+@app.route("/calculator", methods=["GET", "POST"])
+def calculator():
     program.init()
 
-    user_id = session.get("user_id")
-    user = db.session.get(User, user_id)
+    if "user_id" in session:
+        user_id = session.get("user_id")
+        user = db.session.get(User, user_id)
+    else:
+        user = 0
 
     if request.method == "POST":
+        session["return_page"] = "calculator"
+
         action = request.form.get("action")
+        if not program.process_action(action, request, user):
+            pass
 
-        if program.process_action(action, request, user):
-            flash("result_access_granted")
-
-        return redirect(url_for("result"))
-
-    return_page = session.get("return_page")
-    if "result_access_granted" not in get_flashed_messages():
-        return redirect(url_for(return_page))
-
-    match return_page:
-        case "converter":
-            user_result = session.get("conversion_result")
-        case "train":
-            user_result = program.get_task_result(user)
-        case _:
-            raise Exception("Unknown source page")
-
-    color = session.get("color")
-    return_page = session.get("return_page")
-
-    return program.get_rendered_template("result.html", user, user_result, color, return_page)
+    calculator_checked = "checked"
+    return program.get_rendered_template("calculator.html", user, calculator_checked)
 
 
 @app.route("/train", methods=["GET", "POST"])
@@ -130,6 +118,39 @@ def train():
     task_text = program.get_task_text(user)
     train_checked = "checked"
     return program.get_rendered_template("train.html", user, task_text, train_checked)
+
+
+@app.route("/result", methods=["GET", "POST"])
+def result():
+    program.init()
+
+    user_id = session.get("user_id")
+    user = db.session.get(User, user_id)
+
+    if request.method == "POST":
+        action = request.form.get("action")
+
+        if program.process_action(action, request, user):
+            flash("result_access_granted")
+
+        return redirect(url_for("result"))
+
+    return_page = session.get("return_page")
+    if "result_access_granted" not in get_flashed_messages():
+        return redirect(url_for(return_page))
+
+    match return_page:
+        case "converter":
+            user_result = session.get("conversion_result")
+        case "train":
+            user_result = program.get_task_result(user)
+        case _:
+            raise Exception("Unknown source page")
+
+    color = session.get("color")
+    return_page = session.get("return_page")
+
+    return program.get_rendered_template("result.html", user, user_result, color, return_page)
 
 
 @app.route("/register", methods=["GET", "POST"])
