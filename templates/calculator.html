@@ -13,15 +13,8 @@
         box-sizing: border-box;
     }
 
-    .select {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 40px;
-        border-radius: .25rem;
-        padding: 1em;
-        transition: background 0.3s;
-        cursor: point;
+    .operator-selector label {
+        font-size: 16px;
         font-weight: 500;
     }
 
@@ -96,18 +89,20 @@
     <h1 class="text-center mb-4">{{calculator_title}}</h1>
     <form method="post">
         <div class="form-group">
-            <label for="number1">{{number_capitalized}} 1:</label>
-            <input class="custom-input" id="number1" name="username" placeholder="{{ converter_placeholder_text_number }}" autocomplete="off" style="margin-bottom: 10px;" required>
-            <input class="custom-input" id="base1" name="base1" placeholder="{{ converter_placeholder_text_base }}" autocomplete="off" required>
+            <label for="number1">{{number_text}} 1:</label>
+            <input class="custom-input" type="text" id="number1" name="number1" placeholder="{{ converter_placeholder_text_number }}" autocomplete="off" style="margin-bottom: 10px;" required>
+            <input class="custom-input" type="text" id="base1" name="base1" placeholder="{{ converter_placeholder_text_base }}" autocomplete="off" required>
         </div>
         <div class="form-group">
-            <label for="number2">{{number_capitalized}} 2:</label>
-            <input class="custom-input" id="number2" name="username" placeholder="{{ converter_placeholder_text_number }}" autocomplete="off" style="margin-bottom: 10px;" required>
-            <input class="custom-input" id="base2" name="base2" placeholder="{{ converter_placeholder_text_base }}" autocomplete="off" required>
+            <label for="number2">{{number_text}} 2:</label>
+            <input class="custom-input" type="text" id="number2" name="number2" placeholder="{{ converter_placeholder_text_number }}" autocomplete="off" style="margin-bottom: 10px;" required>
+            <input class="custom-input" type="text" id="base2" name="base2" placeholder="{{ converter_placeholder_text_base }}" autocomplete="off" required>
         </div>
         <div class="operator-selector" style="user-select: none;">
-            <div class="select">
-                <span class="selected">+ {{addition}}</span>
+            <label for="operation" >{{operation_type_text}}:</label>
+            <div id="operation" class="select">
+                <input type="hidden" id="chosen_operation" name="chosen_operation" value="+">
+                <span class="selected" id="operation_id">+ {{addition}}</span>
                 <div class="caret"></div>
             </div>
             <ul class="menu">
@@ -117,62 +112,13 @@
                 <li>/ {{division}}</li>
             </ul>
         </div>
+        <div class="form-group">
+            <label for="result_base">{{answer_number_system_text}}:</label>
+            <input class="custom-input" type="text" id="result_base" name="result_base" placeholder="{{ converter_placeholder_text_base }}" autocomplete="off" style="margin-bottom: 10px;" required>
+        </div>
         <button type="submit" class="btn btn-success">{{calculate}}</button>
     </form>
 </div>
 
-<script>
-    const dropdowns = document.querySelectorAll('.operator-selector');
-
-    dropdowns.forEach(dropdown => {
-            const select = dropdown.querySelector('.select');
-            const caret = dropdown.querySelector('.caret');
-            const menu = dropdown.querySelector('.menu');
-            const options = dropdown.querySelectorAll('.menu li');
-            const selected = dropdown.querySelector('.selected');
-
-            select.addEventListener('click', () => {
-                select.classList.toggle('select-clicked');
-                caret.classList.toggle('caret-rotate');
-                menu.classList.toggle('menu-open');
-            });
-
-            options.forEach(option => {
-                option.addEventListener('click', () => {
-                    selected.innerText = option.innerText;
-
-                    selected.classList.add("text-fade-in");
-
-                    setTimeout(() => {
-                        selected.classList.remove("text-fade-in");
-                    }, 300);
-
-                    select.classList.remove('select-clicked');
-
-                    caret.classList.remove('caret-rotate');
-
-                    menu.classList.remove('menu-open');
-
-                    options.forEach(option => {
-                        option.classList.remove('operator-active');
-                    });
-
-                    option.classList.add('operator-active');
-                });
-            });
-
-            window.addEventListener("click", e => {
-                const size = dropdown.getBoundingClientRect();
-
-                if(
-                    e.clientX < size.left || e.clientX > size.right || e.clientY < size.top || e.clientY > size.bottom
-                ) {
-                    select.classList.remove('select-clicked');
-                    caret.classList.remove('caret-rotate');
-
-                    menu.classList.remove('menu-open');
-                }
-            });
-        });
-</script>
+<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
 {% endblock %}
