@@ -1,19 +1,3 @@
-const accountBtn = document.getElementById("account-btn");
-const accountPanel = document.getElementById("account-panel");
-
-accountBtn.addEventListener("click", function(event) {
-    event.stopPropagation();
-    accountPanel.classList.toggle("active");
-});
-
-document.addEventListener("click", function(event) {
-    if (!accountPanel.contains(event.target) && event.target !== accountBtn) {
-        accountPanel.classList.remove("active");
-    }
-});
-
-
-
 const dropdown = document.querySelector('.language-selector');
 const language_menu = dropdown.querySelector('.language-selector-menu');
 const select = dropdown.querySelector('.select');
@@ -40,4 +24,18 @@ options.forEach(option => {
         });
         option.classList.add('language-active');
     });
+});
+
+const accountBtn = document.getElementById("account-btn");
+const accountPanel = document.getElementById("account-panel");
+
+accountBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    accountPanel.classList.toggle("active");
+});
+
+document.addEventListener("click", function(event) {
+    if (!accountPanel.contains(event.target) && event.target !== accountBtn) {
+        accountPanel.classList.remove("active");
+    }
 });
