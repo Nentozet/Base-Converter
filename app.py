@@ -47,7 +47,7 @@ def converter():
             number_to_convert = request.form.get("number_to_convert")
             try:
                 converted_number = Converter.get_converted_number(number_to_convert, int(from_base), int(to_base))
-                session["conversion_result"] = converted_number
+                session["result"] = converted_number
                 session["color"] = Config.Correct_Font_Color
                 session["return_page"] = "converter"
                 flash("result_access_granted")
@@ -67,15 +67,35 @@ def calculator():
     if "user_id" in session:
         user_id = session.get("user_id")
         user = db.session.get(User, user_id)
+        lang = user.language
     else:
         user = 0
+        lang = session.get("language")
 
     if request.method == "POST":
         session["return_page"] = "calculator"
 
         action = request.form.get("action")
         if not program.process_action(action, request, user):
-            pass
+            number1 = request.form.get("number1")
+            base1 = request.form.get("base1")
+            number2 = request.form.get("number2")
+            base2 = request.form.get("base2")
+            operation = request.form.get("chosen_operation")
+            calculation_base = request.form.get("result_base")
+            print(number1, base1, number2, base2, operation, calculation_base)
+
+            try:
+                calculation_result = Converter.get_calculated_number(int(number1), int(base1), int(number2),
+                                                                     int(base2), int(calculation_base), operation)
+                session["result"] = calculation_result
+                session["color"] = Config.Correct_Font_Color
+                session["return_page"] = "calculator"
+                flash("result_access_granted")
+                return redirect(url_for("result"))
+            except ValueError:
+                flash(program.Text_Base[lang]["convertion_error"], "danger")
+                return redirect(url_for("calculator"))
 
     calculator_checked = "checked"
     return program.get_rendered_template("calculator.html", user, calculator_checked)
@@ -140,8 +160,8 @@ def result():
         return redirect(url_for(return_page))
 
     match return_page:
-        case "converter":
-            user_result = session.get("conversion_result")
+        case "converter" | "calculator":
+            user_result = session.get("result")
         case "train":
             user_result = program.get_task_result(user)
         case _:
@@ -224,3 +244,7 @@ def logout():
 
     flash(text["logout_success"], "success")
     return redirect(url_for("login"))
+
+
+if __name__ == "__main__":
+    app.run()

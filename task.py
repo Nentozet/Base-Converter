@@ -66,7 +66,7 @@ class TaskManager:
     def check_answer(answer, user):
         correct_answers = user.task_correct_answers.split('|')
         if answer == correct_answers[0]:
-            session["color"] = Config.Right_Font_Color
+            session["color"] = Config.Correct_Font_Color
             session["last_answer_correct"] = True
             return True
         else:
@@ -112,6 +112,6 @@ class TaskManager:
 
         user.task_correct_answers = "|".join([str(delta), str(delta)])
 
-        format_number_1 = Toolset.get_number_with_base(number_1, base_1)
-        format_number_2 = Toolset.get_number_with_base(number_2, base_2)
-        user.task_data = "|".join([format_number_1, first_comparison_sign, second_comparison_sign, format_number_2])
+        number_1_format = Toolset.get_number_with_base(number_1, base_1)
+        number_2_format = Toolset.get_number_with_base(number_2, base_2)
+        user.task_data = "|".join([number_1_format, first_comparison_sign, second_comparison_sign, number_2_format])

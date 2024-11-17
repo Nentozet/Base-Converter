@@ -19,8 +19,8 @@ class User(db.Model):
     language = db.Column(db.String(2))
     theme = db.Column(db.String(20))
     task_type = db.Column(db.String(2))
-    task_data = db.Column(db.String(128))
-    task_correct_answers = db.Column(db.String(128))
+    task_data = db.Column(db.String(256))
+    task_correct_answers = db.Column(db.String(256))
     need_to_reset_task = db.Column(db.Boolean, default=True)
     __password_hash = db.Column(db.Text, nullable=False)
     __skill_level = db.Column(db.Integer, default=0)
@@ -69,5 +69,5 @@ class User(db.Model):
 
         db.session.commit()
 
-    def get_adaptive_difficulty_ratio(self):
-        return float(self.__skill_level) / 10.0
+    # def get_adaptive_difficulty_ratio(self):
+    #     return float(self.__skill_level) / 10.0
