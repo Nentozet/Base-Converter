@@ -240,16 +240,6 @@
             color: #ececec;
         }
 
-        .select {
-            background: #333333;
-            border: 1px #333333 solid;
-            color: #ececec;
-        }
-
-        .select:hover {
-            background: #595959;
-        }
-
         .caret {
             border-bottom: 5px solid transparent;
             border-top: 5px solid transparent;
@@ -336,16 +326,22 @@
         }
 
         .select {
+            background: #333333;
+            border: 1px #333333 solid;
+            color: #ececec;
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 40px;
             border-radius: .25rem;
-            border: #333333;
-            padding: 1em;
-            transition: background 0.3s;
-            cursor: point;
+            padding: 1em 1em 1em 1.2em;
+            transition: border-color .30s ease-in-out, box-shadow .30s ease-in-out, background 0.3s;
+            cursor: pointer;
             font-weight: 500;
+        }
+
+        .select:hover {
+            background: #595959;
         }
         {% block styles %}{% endblock %}
     </style>
@@ -377,15 +373,14 @@
         <div class="language-selector dropdown">
             <form method="POST">
                 <input type="hidden" name="action" value="change_language">
-
                 <div class="language-selector" style="user-select: none;">
 
                     <div class="select">
-                        <span class="selected" style="padding-left: 5px;"><span class="flag-icon flag-icon-{{ icon }}"></span> {{ language }}</span>
+                        <span class="selected"><span class="flag-icon flag-icon-{{ icon }}"></span> {{ language }}</span>
                     </div>
 
                     <div class="language-selector-menu">
-                        <button type="submit" name="lang" value="ru" class="language-active">
+                        <button type="submit" name="lang" value="ru">
                             <span class="flag-icon flag-icon-ru"></span> Русский
                         </button>
                         <button type="submit" name="lang" value="gb">
