@@ -244,7 +244,3 @@ def logout():
 
     flash(text["logout_success"], "success")
     return redirect(url_for("login"))
-
-
-if __name__ == "__main__":
-    app.run()
