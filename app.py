@@ -4,7 +4,7 @@ from converter import Converter
 from config import Config
 from program import Program
 from random import randint
-from user import User, db
+from user import db
 from toolset import Toolset
 from dotenv import load_dotenv
 
@@ -28,23 +28,24 @@ Toolset.keep_alive()
 @app.route("/", methods=["GET", "POST"])
 @app.route("/converter", methods=["GET", "POST"])
 def converter():
-    program.init()
+    program.init(session)
 
-    if "user_id" in session:
-        user_id = session.get("user_id")
-        user = db.session.get(User, user_id)
+    user_id = session.get("user_id")
+    user = program.get_user(user_id)
+    if user:
         lang = user.language
     else:
-        user = 0
         lang = session.get("language")
 
     if request.method == "POST":
         action = request.form.get("action")
 
-        if not program.process_action(action, request, user):
+        if not program.process_action(action, request, session, user):
+            number_to_convert = request.form.get("number_to_convert")
             from_base = request.form.get("from_base")
             to_base = request.form.get("to_base")
-            number_to_convert = request.form.get("number_to_convert")
+            print(number_to_convert, from_base, to_base)
+
             try:
                 converted_number = Converter.get_converted_number(number_to_convert, int(from_base), int(to_base))
                 session["result"] = converted_number
@@ -57,37 +58,35 @@ def converter():
                 return redirect(url_for("converter"))
 
     converter_checked = "checked"
-    return program.get_rendered_template("converter.html", user, converter_checked)
+    return program.get_rendered_template("converter.html", session, user, converter_checked)
 
 
 @app.route("/calculator", methods=["GET", "POST"])
 def calculator():
-    program.init()
+    program.init(session)
 
-    if "user_id" in session:
-        user_id = session.get("user_id")
-        user = db.session.get(User, user_id)
+    user_id = session.get("user_id")
+    user = program.get_user(user_id)
+    if user:
         lang = user.language
     else:
-        user = 0
         lang = session.get("language")
 
     if request.method == "POST":
         session["return_page"] = "calculator"
 
         action = request.form.get("action")
-        if not program.process_action(action, request, user):
+        if not program.process_action(action, request, session, user):
             number1 = request.form.get("number1")
             base1 = request.form.get("base1")
             number2 = request.form.get("number2")
             base2 = request.form.get("base2")
             operation = request.form.get("chosen_operation")
             calculation_base = request.form.get("result_base")
-            print(number1, base1, number2, base2, operation, calculation_base)
 
             try:
-                calculation_result = Converter.get_calculated_number(int(number1), int(base1), int(number2),
-                                                                     int(base2), int(calculation_base), operation)
+                calculation_result = Converter.get_calculated_number(number1, int(base1), number2, int(base2),
+                                                                     int(calculation_base), operation)
                 session["result"] = calculation_result
                 session["color"] = Config.Correct_Font_Color
                 session["return_page"] = "calculator"
@@ -98,38 +97,30 @@ def calculator():
                 return redirect(url_for("calculator"))
 
     calculator_checked = "checked"
-    return program.get_rendered_template("calculator.html", user, calculator_checked)
+    return program.get_rendered_template("calculator.html", session, user, calculator_checked)
 
 
 @app.route("/train", methods=["GET", "POST"])
 def train():
-    program.init()
+    program.init(session)
 
     if "user_id" not in session:
         return redirect(url_for("login"))
 
     user_id = session.get("user_id")
-    user = db.session.get(User, user_id)
+    user = program.get_user(user_id)
 
-    if user.need_to_reset_task:
-        program.reset_task(randint(1, 2), user)
-        user.need_to_reset_task = False
-        db.session.commit()
+    program.reset_task(randint(1, 2), user)
 
     if request.method == "POST":
         session["return_page"] = "train"
 
         action = request.form.get("action")
-        if not program.process_action(action, request, user):
+        if not program.process_action(action, request, session, user):
             flash("result_access_granted")
 
             answer = request.form.get("answer")
-
-            user.need_to_reset_task = True
-            db.session.commit()
-
-            res = program.check_answer_for_task(answer, user)
-            user.on_solved_task(res)
+            program.on_solved_task(answer, user)
 
             return redirect(url_for("result"))
 
@@ -137,20 +128,20 @@ def train():
 
     task_text = program.get_task_text(user)
     train_checked = "checked"
-    return program.get_rendered_template("train.html", user, task_text, train_checked)
+    return program.get_rendered_template("train.html", session, user, task_text, train_checked)
 
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-    program.init()
+    program.init(session)
 
     user_id = session.get("user_id")
-    user = db.session.get(User, user_id)
+    user = program.get_user(user_id)
 
     if request.method == "POST":
         action = request.form.get("action")
 
-        if program.process_action(action, request, user):
+        if program.process_action(action, request, session, user):
             flash("result_access_granted")
 
         return redirect(url_for("result"))
@@ -170,12 +161,12 @@ def result():
     color = session.get("color")
     return_page = session.get("return_page")
 
-    return program.get_rendered_template("result.html", user, user_result, color, return_page)
+    return program.get_rendered_template("result.html", session, user, user_result, color, return_page)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    program.init()
+    program.init(session)
 
     if "user_id" in session:
         return redirect(url_for("logout"))
@@ -185,35 +176,23 @@ def register():
     if request.method == "POST":
         action = request.form.get("action")
         if not program.process_action(action, request, session):
-            username = request.form["username"]
-            password_1 = request.form["password_1"]
-            password_2 = request.form["password_2"]
+            username = request.form.get("username")
+            password_1 = request.form.get("password_1")
+            password_2 = request.form.get("password_2")
 
-            if User.query.filter_by(username=username).first():
-                flash(program.Text_Base[lang]["existed_username_alert"], "danger")
+            if not program.check_registration_data(lang, username, password_1, password_2):
                 return redirect(url_for("register"))
 
-            if password_1 != password_2:
-                flash(program.Text_Base[lang]["different_passwords_alert"], "danger")
-                return redirect(url_for("register"))
-
-            new_user = User(username=username)
-            new_user.set_password(password_1)
-            new_user.language = session.get("language")
-            new_user.theme = session.get("theme")
-
-            db.session.add(new_user)
-            db.session.commit()
-
+            program.create_user(username, password_1, session)
             flash(program.Text_Base[lang]["registration_success"], "success")
             return redirect(url_for("login"))
 
-    return program.get_rendered_template("register.html")
+    return program.get_rendered_template("register.html", session)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    program.init()
+    program.init(session)
 
     if "user_id" in session:
         return redirect(url_for("logout"))
@@ -224,15 +203,13 @@ def login():
             username = request.form["username"]
             password = request.form["password"]
 
-            user = User.query.filter_by(username=username).first()
-            if user and user.check_password(password):
-                session["user_id"] = user.id
+            if program.check_login_data(session, username, password):
                 return redirect(url_for("train"))
-            else:
-                lang = session.get("language")
-                flash(program.Text_Base[lang]["invalid_login_data"], "danger")
 
-    return program.get_rendered_template("login.html")
+            lang = session.get("language")
+            flash(program.Text_Base[lang]["invalid_login_data"], "danger")
+
+    return program.get_rendered_template("login.html", session)
 
 
 @app.route("/logout")
