@@ -5,6 +5,27 @@ from random import randint
 db = SQLAlchemy()
 
 
+class UserManager:
+    @staticmethod
+    def get_user(user_id):
+        user = db.session.get(User, user_id)
+        return user
+
+    @staticmethod
+    def create_user(username, password, ses):
+        new_user = User(username=username)
+        new_user.set_password(password)
+        new_user.language = ses.get("language")
+        new_user.theme = ses.get("theme")
+
+        db.session.add(new_user)
+        db.session.commit()
+
+    @staticmethod
+    def get_user_by_name(username):
+        return User.query.filter_by(username=username).first()
+
+
 class User(db.Model):
     __Min_Skill_Level = 0
     __Max_Skill_Level = 10
@@ -33,7 +54,7 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.__password_hash, password)
 
-    def on_solved_task(self, is_correctly):
+    def calculate_skill_score(self, is_correctly):
         min_score = self.__Min_Skill_Level
         max_score = self.__Max_Skill_Level
 
