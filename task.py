@@ -33,7 +33,7 @@ class TaskManager:
             case _:
                 raise Exception("Unknown preference")
 
-        number = Converter.get_converted_number(random.randint(left_border, right_border), 10, base)
+        number = Converter.get_converted_number(str(random.randint(left_border, right_border)), 10, base)
 
         return number, base
 
