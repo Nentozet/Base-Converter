@@ -60,6 +60,7 @@
         border-radius: 0.5em;
         transition: background 0.3s, color 0.3s;
         cursor: pointer;
+        user-select: none;
         font-weight: 500;
     }
 
@@ -98,7 +99,7 @@
             <input class="custom-input" type="text" id="number2" name="number2" placeholder="{{ converter_placeholder_text_number }}" autocomplete="off" style="margin-bottom: 10px;" required>
             <input class="custom-input" type="text" id="base2" name="base2" placeholder="{{ converter_placeholder_text_base }}" autocomplete="off" required>
         </div>
-        <div class="operator-selector" style="user-select: none;">
+        <div class="operator-selector">
             <label for="operation" >{{operation_type_text}}:</label>
             <div id="operation" class="select">
                 <input type="hidden" id="chosen_operation" name="chosen_operation" value="+">
