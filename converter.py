@@ -8,7 +8,7 @@ class Converter:
 
     @staticmethod
     def get_converted_number(number, from_base, to_base):
-        getcontext().prec = Config.Conversion_Accuracy * 4
+        getcontext().prec = Config.Conversion_Precision * 4
         number = Converter.__get_validated_number(number)
 
         if number[0] == "-":
@@ -87,7 +87,7 @@ class Converter:
         result_fractional = ''
         if fractional_part:
             fractional_part = Decimal(f'0.{fractional_part}')
-            for _ in range(Config.Conversion_Accuracy):  # Точность до Config.Conversion_Accuracy знаков
+            for _ in range(Config.Conversion_Precision):  # Точность до Config.Conversion_Precision знаков
                 fractional_part *= base
                 digit = int(fractional_part)
                 result_fractional += Converter.digits[digit]
