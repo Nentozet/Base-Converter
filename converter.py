@@ -107,7 +107,7 @@ class Converter:
         number = number.replace(" ", "").replace(",", ".").lstrip("0")
 
         if number == "":
-            return 0
+            return '0'
         
         if number.count(".") > 1:
             raise ValueError
