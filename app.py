@@ -95,6 +95,9 @@ def calculator():
             except ValueError:
                 flash(program.Text_Base[lang]["convertion_error"], "danger")
                 return redirect(url_for("calculator"))
+            except ZeroDivisionError:
+                flash(program.Text_Base[lang]["zero_division_error"], "danger")
+                return redirect(url_for("calculator"))
 
     calculator_checked = "checked"
     return program.get_rendered_template("calculator.html", session, user, calculator_checked)
