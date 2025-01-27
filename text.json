@@ -50,6 +50,7 @@
     "logout": "Выйти",
 
     "convertion_error": "Ошибка конвертации! Перепроверьте введенные значения",
+    "zero_division_error": "Ошибка! Деление на ноль",
     "existed_username_alert": "Пользователь уже существует",
     "different_passwords_alert": "Пароли не совпадают",
     "registration_success": "Регистрация прошла успешно. Теперь вы можете войти",
@@ -109,6 +110,7 @@
     "logout": "Logout",
 
     "convertion_error": "Conversion error! Please check the entered values",
+    "zero_division_error": "Error! Division by zero",
     "existed_username_alert": "User already exists",
     "different_passwords_alert": "Passwords do not match",
     "registration_success": "Registration successful. You can now log in",
@@ -167,6 +169,7 @@
     "logout": "Abmelden",
 
     "convertion_error": "Konvertierungsfehler! Bitte überprüfen Sie die eingegebenen Werte",
+    "zero_division_error": "Fehler! Division durch null",
     "existed_username_alert": "Benutzer existiert bereits",
     "different_passwords_alert": "Passwörter stimmen nicht überein",
     "registration_success": "Registrierung erfolgreich. Sie können sich jetzt anmelden",
@@ -225,6 +228,7 @@
     "logout": "Déconnexion",
 
     "convertion_error": "Erreur de conversion ! Veuillez vérifier les valeurs saisies",
+    "zero_division_error": "Erreur ! Division par zéro",
     "existed_username_alert": "L'utilisateur existe déjà",
     "different_passwords_alert": "Les mots de passe ne correspondent pas",
     "registration_success": "Inscription réussie. Vous pouvez maintenant vous connecter",
@@ -283,6 +287,7 @@
     "logout": "ログアウト",
 
     "convertion_error": "変換エラー！入力された値を確認してください",
+    "zero_division_error": "エラー！ゼロで除算しました",
     "existed_username_alert": "ユーザーは既に存在します",
     "different_passwords_alert": "パスワードが一致しません",
     "registration_success": "登録が成功しました。ログインできます",
