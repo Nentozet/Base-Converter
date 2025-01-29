@@ -82,14 +82,14 @@ class Program:
             user.need_to_reset_task = False
             db.session.commit()
 
-    def get_task_text(self, user):
-        return self.task_manager.get_text(self.Text_Base[user.language], user)
+    def get_task_text(self, language, task_data, task_type):
+        return self.task_manager.get_text(self.Text_Base[language], task_data, task_type)
 
     def get_task_result(self, user):
         return self.task_manager.get_result(self.Text_Base[user.language], user)
 
     def get_rendered_template(self, filename, ses, user=0, *args):
-        # !!! В качестве аргументов этой функции должны передаваться переменные с таким же названием, что и в html-файле
+        # !!! В качестве *args этой функции должны передаваться переменные с таким же названием, что и в html-файле
         if user:
             theme = user.theme
             language = user.language
@@ -121,3 +121,6 @@ class Program:
 
         res = self.check_answer_for_task(answer, user)
         user.calculate_skill_score(res)
+
+    def generate_task(self, lang, task_type):
+        return self.task_manager.generate_task(self.Text_Base[lang], task_type)
