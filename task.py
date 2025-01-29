@@ -113,7 +113,7 @@ class TaskManager:
                 delta += 1
 
         # Возвращаем данные задания для пользователя
-        correct_answers = "|".join([str(delta), str(delta)])
+        correct_answers = str(delta)
 
         number_1_format = Toolset.get_number_with_base(number_1, base_1)
         number_2_format = Toolset.get_number_with_base(number_2, base_2)
