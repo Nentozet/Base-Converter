@@ -7,25 +7,35 @@ class Converter:
     digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     @staticmethod
-    def get_converted_number(number, from_base, to_base):
-        getcontext().prec = Config.Conversion_Precision * 4
-        number = Converter.__get_validated_number(number)
+    def get_converted_number(from_number, from_base, to_base):
+        from_base = int(from_base)
+        to_base = int(to_base)
+        getcontext().prec = Config.Conversion_Accuracy * 4
+        from_number = Converter.__get_validated_number(from_number)
 
-        if number[0] == "-":
+        if not 2 <= from_base <= 36 or not 2 <= to_base <= 36:
+            raise ValueError
+
+        if from_number[0] == "-":
             negative = "-"
-            number = number[1:]
+            from_number = from_number[1:]
         else:
             negative = ""
 
         if from_base != 10:
-            number_dec = str(Converter.__change_base_to_dec(number, from_base))
+            number_dec = str(Converter.__change_base_to_dec(from_number, from_base))
         else:
-            number_dec = number
+            number_dec = from_number
 
-        return negative + Converter.__change_base_from_dec(number_dec, to_base)
+        return negative + Converter.__change_base_from_dec(number_dec, to_base, Config.Conversion_Accuracy)
 
     @staticmethod
-    def get_calculated_number(number1, base1, number2, base2, calculation_base, operation):
+    def get_calculated_number(number1, base1, number2, base2, calculation_base, operation,
+                              accuracy=Config.Calculation_Accuracy, need_base_notation=True):
+        accuracy = int(accuracy)
+        base1 = int(base1)
+        base2 = int(base2)
+        calculation_base = int(calculation_base)
         number1 = Converter.get_converted_number(number1, base1, 10)
         number2 = Converter.get_converted_number(number2, base2, 10)
 
@@ -40,9 +50,16 @@ class Converter:
         if '.' in calculation_result:
             calculation_result = calculation_result.rstrip('0')
 
-        calculation_result_format = Toolset.get_number_with_base(calculation_result, calculation_base)
+        if calculation_result[-1] == '.':
+            calculation_result = calculation_result[:-1]
 
-        return calculation_result_format
+        if "." in calculation_result:
+            calculation_result = calculation_result[:calculation_result.index(".") + accuracy + 1]
+
+        if need_base_notation:
+            calculation_result = Toolset.get_number_with_base(calculation_result, calculation_base)
+
+        return calculation_result
 
     @staticmethod
     def __change_base_to_dec(number, base):
@@ -63,7 +80,8 @@ class Converter:
         return integer_value + fractional_value
 
     @staticmethod
-    def __change_base_from_dec(number, base):
+    def __change_base_from_dec(number, base, accuracy):
+        # Точность до accuracy знаков
         if base == 10:
             return number
 
@@ -87,7 +105,7 @@ class Converter:
         result_fractional = ''
         if fractional_part:
             fractional_part = Decimal(f'0.{fractional_part}')
-            for _ in range(Config.Conversion_Precision):  # Точность до Config.Conversion_Precision знаков
+            for _ in range(accuracy):
                 fractional_part *= base
                 digit = int(fractional_part)
                 result_fractional += Converter.digits[digit]
@@ -108,7 +126,7 @@ class Converter:
 
         if number == "":
             return '0'
-        
+
         if number.count(".") > 1:
             raise ValueError
 
