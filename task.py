@@ -38,9 +38,9 @@ class TaskManager:
         return number, base
 
     @staticmethod
-    def get_text(text_base, user):
-        replacements = user.task_data.split("|")
-        return Toolset.replace_underscores(text_base[f"task_{user.task_type}"], replacements)
+    def get_text(text_base, task_data, task_type):
+        replacements = task_data.split("|")
+        return Toolset.replace_underscores(text_base[f"task_{task_type}"], replacements)
 
     @staticmethod
     def get_result(text_base, user):
@@ -53,9 +53,9 @@ class TaskManager:
     def reset_task(task_type, user):
         match task_type:
             case 1:
-                TaskManager.__reset_task_1(user)
+                user.set_task(*TaskManager.__get_task_1())
             case 2:
-                TaskManager.__reset_task_2(user)
+                user.set_task(*TaskManager.__get_task_2())
             case _:
                 raise Exception(f"{task_type} task doesn't exist")
 
@@ -75,7 +75,7 @@ class TaskManager:
             return False
 
     @staticmethod
-    def __reset_task_1(user):
+    def __get_task_1():
         from_number, from_base = TaskManager.get_random_number_base()
 
         to_base = random.choice(TaskManager.__Bases_For_Task)
@@ -84,12 +84,14 @@ class TaskManager:
 
         to_number = Converter.get_converted_number(from_number, from_base, to_base)
 
-        # Сохраняем данные задания для пользователя
-        user.task_data = "|".join([Toolset.get_number_with_base(from_number, from_base), str(to_base)])
-        user.task_correct_answers = "|".join([str(to_number), Toolset.get_number_with_base(to_number, to_base)])
+        # Возвращаем данные задания для пользователя
+        data = "|".join([Toolset.get_number_with_base(from_number, from_base), str(to_base)])
+        correct_answers = "|".join([str(to_number), Toolset.get_number_with_base(to_number, to_base)])
+
+        return data, correct_answers
 
     @staticmethod
-    def __reset_task_2(user):
+    def __get_task_2():
         first_comparison_sign, second_comparison_sign = random.choice(["<", "≤"]), random.choice(["<", "≤"])
 
         number_1, base_1 = TaskManager.get_random_number_base("first_half")
@@ -110,8 +112,25 @@ class TaskManager:
             else:
                 delta += 1
 
-        user.task_correct_answers = "|".join([str(delta), str(delta)])
+        # Возвращаем данные задания для пользователя
+        correct_answers = "|".join([str(delta), str(delta)])
 
         number_1_format = Toolset.get_number_with_base(number_1, base_1)
         number_2_format = Toolset.get_number_with_base(number_2, base_2)
-        user.task_data = "|".join([number_1_format, first_comparison_sign, second_comparison_sign, number_2_format])
+
+        data = "|".join([number_1_format, first_comparison_sign, second_comparison_sign, number_2_format])
+
+        return data, correct_answers
+
+    def generate_task(self, text_base, task_type):
+        task_type = int(task_type)
+        match task_type:
+            case 1:
+                data, correct_answers = self.__get_task_1()
+            case 2:
+                data, correct_answers = self.__get_task_2()
+            case _:
+                raise Exception(f"{task_type} task doesn't exist")
+
+        text = self.get_text(text_base, data, task_type)
+        return text, correct_answers
