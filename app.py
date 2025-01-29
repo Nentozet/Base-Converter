@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session
+from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session, jsonify
 from converter import Converter
 from config import Config
 from program import Program
@@ -127,9 +127,7 @@ def train():
 
             return redirect(url_for("result"))
 
-    print(user.task_correct_answers.split("|")[-1])
-
-    task_text = program.get_task_text(user)
+    task_text = program.get_task_text(user.language, user.task_data, user.task_type)
     train_checked = "checked"
     return program.get_rendered_template("train.html", session, user, task_text, train_checked)
 
@@ -224,3 +222,45 @@ def logout():
 
     flash(text["logout_success"], "success")
     return redirect(url_for("login"))
+
+
+@app.route("/api/<string:args>", methods=["GET"])
+def get_api_response(args):
+    parsed_args = {}
+
+    args = args.split("&")
+    for arg in args:
+        pair = arg.split("=")
+        if len(pair) == 1:
+            return jsonify(status="error", error_description="Incorrect parameters specified")
+        parsed_args[pair[0]] = pair[1]
+
+    if "mode" not in parsed_args:
+        return jsonify(status="error", error_description="Mode not specified")
+
+    try:
+        if parsed_args["mode"] == "converter":
+            del parsed_args["mode"]
+            res = {"result": Converter.get_converted_number(**parsed_args)}
+        elif parsed_args["mode"] == "calculator":
+            del parsed_args["mode"]
+            if parsed_args["operation"] == "d":
+                parsed_args["operation"] = "/"
+            res = {"result": Converter.get_calculated_number(**parsed_args, need_base_notation=False)}
+        elif parsed_args["mode"] == "task_generator":
+            del parsed_args["mode"]
+            text, corr_ans = program.generate_task(**parsed_args)
+            ans, formatted_ans = corr_ans.split("|")
+            res = {"result": {"text": text, "correct_answer": ans, "correct_answer_formatted": formatted_ans}}
+        else:
+            return jsonify(status="error", error_description="Unknown mode")
+
+        return jsonify(status="ok", **res)
+    except (ValueError, KeyError, TypeError):
+        return jsonify(status="error", error_description="Incorrect parameters specified")
+    except ZeroDivisionError:
+        return jsonify(status="ok", error_description="Division by zero")
+
+
+if __name__ == "__main__":
+    app.run()
