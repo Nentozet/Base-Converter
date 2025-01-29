@@ -90,5 +90,6 @@ class User(db.Model):
 
         db.session.commit()
 
-    # def get_adaptive_difficulty_ratio(self):
-    #     return float(self.__skill_level) / 10.0
+    def set_task(self, data, correct_answers):
+        self.task_correct_answers = correct_answers
+        self.task_data = data
