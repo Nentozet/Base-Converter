@@ -250,8 +250,10 @@ def get_api_response(args):
         elif parsed_args["mode"] == "task_generator":
             del parsed_args["mode"]
             text, corr_ans = program.generate_task(**parsed_args)
-            ans, formatted_ans = corr_ans.split("|")
-            res = {"result": {"text": text, "correct_answer": ans, "correct_answer_formatted": formatted_ans}}
+            corr_ans = corr_ans.split("|")
+            res = {"result": {"text": text, "correct_answer": corr_ans[0]}}
+            if len(corr_ans) == 2:
+                res["result"]["correct_answer_formatted"] = corr_ans[1]
         else:
             return jsonify(status="error", error_description="Unknown mode")
 
