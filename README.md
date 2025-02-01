@@ -23,9 +23,9 @@
 - Формат ответа:
      ```
      {
-        "status": ...,
-        "error_description": ...,
-        "result": ...
+       "status": ...,
+       "error_description": ...,
+       "result": ...
      }
      ```
      - ```"status"``` - статус запроса. Возможные значения:
@@ -38,8 +38,8 @@
 > https://base-converter.onrender.com/api/mode=converter&from_number=5.142423&from_base=10&to_base=2&accuracy=6
  ```json
 {
-  "result": "101.001001",
-  "status": "ok"
+   "result": "101.001001",
+   "status": "ok"
 }
  ```
 
