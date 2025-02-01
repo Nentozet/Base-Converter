@@ -7,10 +7,11 @@ class Converter:
     digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     @staticmethod
-    def get_converted_number(from_number, from_base, to_base):
+    def get_converted_number(from_number, from_base, to_base, accuracy=Config.Conversion_Accuracy):
+        accuracy = int(accuracy)
         from_base = int(from_base)
         to_base = int(to_base)
-        getcontext().prec = Config.Conversion_Accuracy * 4
+        getcontext().prec = accuracy * 4
         from_number = Converter.__get_validated_number(from_number)
 
         if not 2 <= from_base <= 36 or not 2 <= to_base <= 36:
@@ -27,34 +28,38 @@ class Converter:
         else:
             number_dec = from_number
 
-        return negative + Converter.__change_base_from_dec(number_dec, to_base, Config.Conversion_Accuracy)
+        abs_number = Converter.__change_base_from_dec(number_dec, to_base, accuracy)
+        if '.' in abs_number:
+            abs_number = abs_number.rstrip('0').rstrip('.')
+
+        return negative + abs_number
 
     @staticmethod
     def get_calculated_number(number1, base1, number2, base2, calculation_base, operation,
                               accuracy=Config.Calculation_Accuracy, need_base_notation=True):
         accuracy = int(accuracy)
+        getcontext().prec = accuracy * 4
+        if not 1 <= accuracy <= 100:
+            raise ValueError
         base1 = int(base1)
         base2 = int(base2)
         calculation_base = int(calculation_base)
         number1 = Converter.get_converted_number(number1, base1, 10)
         number2 = Converter.get_converted_number(number2, base2, 10)
 
-        expression = f' {operation} '.join((number1, number2))
+        expression = f' {operation} '.join((f"Decimal('{number1}')", f"Decimal('{number2}')"))
         calculation_result_dec = str(eval(expression))
 
         if calculation_base != 10:
-            calculation_result = Converter.get_converted_number(calculation_result_dec, 10, calculation_base)
+            calculation_result = Converter.get_converted_number(calculation_result_dec, 10, calculation_base, accuracy)
         else:
             calculation_result = calculation_result_dec
 
         if '.' in calculation_result:
-            calculation_result = calculation_result.rstrip('0')
+            calculation_result = calculation_result[:calculation_result.index('.') + accuracy + 1].rstrip('0')
 
         if calculation_result[-1] == '.':
             calculation_result = calculation_result[:-1]
-
-        if "." in calculation_result:
-            calculation_result = calculation_result[:calculation_result.index(".") + accuracy + 1]
 
         if need_base_notation:
             calculation_result = Toolset.get_number_with_base(calculation_result, calculation_base)
@@ -148,3 +153,20 @@ class Converter:
             return negative + int_part
         else:
             return negative + int_part + '.' + frac_part
+
+    # @staticmethod
+    # def round_for_base(number, base, accuracy):
+    #     if '.' not in number:
+    #         return number
+    #
+    #     if accuracy >= len(number) - number.index('.') - 1:
+    #         return number
+    #
+    #     pre_fraq_part = number[number.index('.') - 1] + number[number.index('.') + 1:]
+    #
+    #     if pre_fraq_part[accuracy + 1] in Converter.digits[base // 2:]:
+    #         pre_fraq_part = pre_fraq_part[:accuracy] + Converter.digits[pre_fraq_part[accuracy] % base]
+    #     else:
+    #         pre_fraq_part = pre_fraq_part[:accuracy + 1]
+    #
+    #     return (number[:number.index('.') - 1] + pre_fraq_part[0] + '.' + pre_fraq_part[1:]).rstrip('.')
