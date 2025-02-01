@@ -244,8 +244,7 @@ def get_api_response(args):
             res = {"result": Converter.get_converted_number(**parsed_args)}
         elif parsed_args["mode"] == "calculator":
             del parsed_args["mode"]
-            if parsed_args["operation"] == "d":
-                parsed_args["operation"] = "/"
+            parsed_args["operation"] = Config.Operation_Changer[parsed_args["operation"]]
             res = {"result": Converter.get_calculated_number(**parsed_args, need_base_notation=False)}
         elif parsed_args["mode"] == "task_generator":
             del parsed_args["mode"]
