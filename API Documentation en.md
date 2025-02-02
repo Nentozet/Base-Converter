@@ -122,7 +122,7 @@ ___
 # **Examples**<span id="examples"></span>
 > Convert the number **5.142423** from the **decimal** numeral system to the **binary** system with a maximum precision of **6 digits** in the fractional part.\
 > https://base-converter.onrender.com/api/mode=converter&fn=5.142423&fb=10&tb=2&accuracy=6
-```
+```json
 {
    "status": "ok",
    "result": "101.001001"
