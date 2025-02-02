@@ -25,16 +25,16 @@ Base URL:
 The main parameter is ```mode```, which can take the following values:
 
 ## ```mode=converter``` – converter mode.<span id="request_converter"></span>
-**Required** **arguments:**
+***Required*** **arguments:**
    - ```fn=<any number>``` - number to be converted.
    - ```fb=<integer in the range [2, 36]>``` - base of the number ```fn```.
    - ```tb=<integer in the range [2, 36]>``` - base of the converted number.
 
-**Optional** **arguments:**
+***Optional*** **arguments:**
    - ```accuracy=<integer in the range [1, 100]>``` - maximum number of digits in the fractional part of the number.
 
 ## ```mode=calculator``` – calculator mode.<span id="request_calculator"></span>
-**Required** **arguments:**
+***Required*** **arguments:**
    - ```n1=<any number>``` - first number.
    - ```b1=<integer in the range [2, 36]>``` - base of the number n1.
    - ```n2=<any number>``` - second number.
@@ -49,11 +49,11 @@ The main parameter is ```mode```, which can take the following values:
      | Division                    | div                       |
    - ```calc_b=<integer in the range [2, 36]>``` - base of the result number.
 
-**Optional** **arguments:**
+***Optional*** **arguments:**
    - ```accuracy=<integer in the range [1, 100]>``` - maximum number of digits in the fractional part of the number.
 
 ## ```mode=task_generator``` – task generator mode.<span id="request_task_generator"></span>
-**Required** **arguments:**
+***Required*** **arguments:**
    - ```type=<task type number>``` - task type.
 
      | Task Type | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task Statement |
@@ -114,7 +114,7 @@ After processing the request, a **JSON file** is returned as a response.
 > If ```"status": "ok"```, the ```"error_description"``` attribute is not present in the JSON object.
 
 - ```"result"``` - nested object containing two attributes:
-   - ```text``` - task condition in the requested language.
+   - ```text``` - task statement in the requested language.
    - ```correct_answer``` - correct answer to the task.
 > If ```"status": "error"```, the ```"result"``` attribute is not present in the JSON object.
 ___
