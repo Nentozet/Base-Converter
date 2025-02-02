@@ -241,14 +241,21 @@ def get_api_response(args):
     try:
         if parsed_args["mode"] == "converter":
             del parsed_args["mode"]
-            res = {"result": Converter.get_converted_number(**parsed_args)}
+
+            validated_args = Toolset.get_validated_args(parsed_args, Config.Converter_Arg_Names_Changer)
+
+            res = {"result": Converter.get_converted_number(**validated_args)}
         elif parsed_args["mode"] == "calculator":
             del parsed_args["mode"]
-            parsed_args["operation"] = Config.Operation_Changer[parsed_args["operation"]]
-            res = {"result": Converter.get_calculated_number(**parsed_args, need_base_notation=False)}
+
+            validated_args = Toolset.get_validated_args(parsed_args, Config.Calculator_Arg_Names_Changer)
+
+            validated_args["operation"] = Config.Operation_Args_Changer[validated_args["operation"]]
+            res = {"result": Converter.get_calculated_number(**validated_args, need_base_notation=False)}
         elif parsed_args["mode"] == "task_generator":
             del parsed_args["mode"]
-            text, corr_ans = program.generate_task(**parsed_args)
+            validated_args = Toolset.get_validated_args(parsed_args, Config.Task_Arg_Names_Changer)
+            text, corr_ans = program.generate_task(**validated_args)
             text = text.replace('\n', '')
             corr_ans = corr_ans.split("|")
             res = {"result": {"text": text, "correct_answer": corr_ans[0]}}
