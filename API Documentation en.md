@@ -143,8 +143,8 @@ ___
   "status": "ok",
   "result":
   {
-    "correct_answer": "449",
-    "text": "How many integers x satisfy the following double inequality: 31₂₃ < x < 160₂₀?"
+    "text": "How many integers x satisfy the following double inequality: 31₂₃ < x < 160₂₀?",
+    "correct_answer": "449"
   }
 }
 ```
