@@ -24,7 +24,7 @@ class Toolset:
     @staticmethod
     def keep_alive():
         try:
-            requests.get("http://127.0.0.1:5000")
+            requests.get("https://base-converter.onrender.com")
         except Exception as e:
             print(f"Ошибка keep-alive: {e}")
         threading.Timer(10, Toolset.keep_alive).start()
