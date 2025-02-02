@@ -120,7 +120,7 @@ ___
 ___
 # **Примеры**<span id="examples"></span>
 > Преобразовать число **5.142423** из **десятичной** системы счисления в **двоичную** с максимальной точностью в **6 знаков** в дробной части.\
-> https://base-converter.onrender.com/api/mode=converter&from_number=5.142423&from_base=10&to_base=2&accuracy=6
+> https://base-converter.onrender.com/api/mode=converter&fт=5.142423&fb=10&tb=2&accuracy=6
 ```json
 {
    "status": "ok",
