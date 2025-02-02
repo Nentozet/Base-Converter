@@ -249,6 +249,7 @@ def get_api_response(args):
         elif parsed_args["mode"] == "task_generator":
             del parsed_args["mode"]
             text, corr_ans = program.generate_task(**parsed_args)
+            text = text.replace('\n', '')
             corr_ans = corr_ans.split("|")
             res = {"result": {"text": text, "correct_answer": corr_ans[0]}}
             if len(corr_ans) == 2:
