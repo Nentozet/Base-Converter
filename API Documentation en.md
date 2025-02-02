@@ -39,7 +39,7 @@ The main parameter is ```mode```, which can take the following values:
    - ```b1=<integer in the range [2, 36]>``` - base of the number n1.
    - ```n2=<any number>``` - second number.
    - ```b2=<integer in the range [2, 36]>``` - base of the number n2.
-   - ```oper=<add/sub/mult/div>``` - operation code for the operation between numbers n1 and n2.
+   - ```oper=<operation code>``` - operation type between numbers n1 and n2.
 
      |       Operation Type        |      Operation Code       |
      | :-------------------------: | :-----------------------: |
@@ -56,11 +56,11 @@ The main parameter is ```mode```, which can take the following values:
 **Required** **arguments:**
    - ```type=<task type number>``` - task type.
 
-     | Task Type |                                              Task Condition                                              |
-     | :-------: | :-----------------------------------------------------------------------------------------------------: |
+     | Task Type | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task Statement |
+     | :-------: | :----------------------------------------------------------------------------------------------------- |
      | 1         | Convert the number ```<random integer>``` to the numeral system ```<random integer in the range [2, 36]>``` (do not specify the base in the answer). |
      | 2         | How many integers ```x``` satisfy the following double inequality: ```<random integer>``` **<sign </&#8804;>** ```x``` **<sign </&#8804;>** ```<random integer>```? |
-   - ```lang=<language code>``` - language to which the task condition will be translated.
+   - ```lang=<language code>``` - language to which the task statement will be translated.
 
      |    Language    | Language Code |
      | :------------: | :-----------: |
