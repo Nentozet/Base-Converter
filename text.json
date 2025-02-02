@@ -26,7 +26,7 @@
     "calculate": "Посчитать",
 
     "train_title": "Тренировка",
-    "task_1": "Переведите число _ в систему счисления _ (основание в ответе указывать не нужно)",
+    "task_1": "Переведите число _ в систему счисления _ (основание в ответе указывать не нужно).",
     "task_2": "Сколько целых чисел x удовлетворяет этому двойному неравенству: \n_ _ x _ _?",
 
     "conversion_result_title": "Результат преобразования",
@@ -86,7 +86,7 @@
     "calculate": "Calculate",
 
     "train_title": "Training",
-    "task_1": "Convert the number _ to base _ (the base does not need to be specified in the answer)",
+    "task_1": "Convert the number _ to base _ (the base does not need to be specified in the answer).",
     "task_2": "How many integers x satisfy this double inequality: \n_ _ x _ _?",
 
     "conversion_result_title": "Сonversion result",
@@ -145,7 +145,7 @@
     "calculate": "Berechnen",
 
     "train_title": "Training",
-    "task_1": "Wandeln Sie die Zahl _ in das Zahlensystem _ um (die Basis muss in der Antwort nicht angegeben werden)",
+    "task_1": "Wandeln Sie die Zahl _ in das Zahlensystem _ um (die Basis muss in der Antwort nicht angegeben werden).",
     "task_2": "Wie viele ganze Zahlen x erfüllen diese doppelte Ungleichung: \n_ _ x _ _?",
 
     "conversion_result_title": "Konvertierungsergebnis",
@@ -204,7 +204,7 @@
     "calculate": "Calculer",
 
     "train_title": "Entraînement",
-    "task_1": "Convertir le chiffre _ en système numérique _ (il n'est pas nécessaire d'indiquer la base dans la réponse)",
+    "task_1": "Convertir le chiffre _ en système numérique _ (il n'est pas nécessaire d'indiquer la base dans la réponse).",
     "task_2": "Combien de nombres entiers x satisfont cette double inégalité : \n_ _ x _ _?",
 
     "conversion_result_title": "Résultat de la conversion",
@@ -263,7 +263,7 @@
     "calculate": "計算する",
 
     "train_title": "トレーニング",
-    "task_1": "数値 _ を数体系 _ に変換します (解答には基数を指定する必要はありません)",
+    "task_1": "数値 _ を数体系 _ に変換します (解答には基数を指定する必要はありません)。",
     "task_2": "この二重不等式を満たす整数 x はいくつありますか: \n_ _ x _ _?",
 
     "conversion_result_title": "変換結果",
