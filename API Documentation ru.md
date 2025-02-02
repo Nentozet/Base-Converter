@@ -42,7 +42,7 @@ ___
    - ```b2=<целое число в диапазоне [2, 36]>``` - основание числа n2.
    - ```oper=<add/sub/mult/div>``` - код типа операции между числами n1 и n2.
 
-     | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Тип операции&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Код операции&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+     | &nbsp;&nbsp; Тип операции &nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Код операции &nbsp;&nbsp;&nbsp; |
      | :--: | :----------: |
      | Сложение | add |
      | Вычитание | sub |
@@ -63,7 +63,7 @@ ___
      | 2 | Сколько целых чисел ```x``` удовлетворяет этому двойному неравенству: ```<случайное целое число>``` **<знак </&#8804;>** ```x``` **<знак </&#8804;>** ```<случайное целое число>```? |
    - ```lang=<код языка>``` - язык, на который будет переведено условие.
 
-     | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Язык&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Код языка&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+     | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Язык&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; Код языка &nbsp;&nbsp;&nbsp;&nbsp; |
      | :--: | :----------: |
      | Русский | ru |
      | Английский | gb |
