@@ -137,7 +137,7 @@ ___
 }
 ```
 > Generate a task of type **1** in **Russian language**.\
-> https://base-converter.onrender.com/api/mode=task_generator&type=2&lang=ru
+> https://base-converter.onrender.com/api/mode=task_generator&type=2&lang=gb
 ```json
 {
   "status": "ok",
