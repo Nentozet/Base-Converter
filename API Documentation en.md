@@ -31,7 +31,7 @@ The main parameter is ```mode```, which can take the following values:
    - ```tb=<integer in the range [2, 36]>``` - base of the converted number.
 
 ***Optional*** **arguments:**
-   - ```accuracy=<integer in the range [1, 100]>``` - maximum number of digits in the fractional part of the number.
+   - ```accuracy=<integer in the range [1, 100]>``` - maximum number of digits in the fractional part of the number(default ```12```).
 
 ## ```mode=calculator``` – calculator mode.<span id="request_calculator"></span>
 ***Required*** **arguments:**
@@ -50,7 +50,7 @@ The main parameter is ```mode```, which can take the following values:
    - ```calc_b=<integer in the range [2, 36]>``` - base of the result number.
 
 ***Optional*** **arguments:**
-   - ```accuracy=<integer in the range [1, 100]>``` - maximum number of digits in the fractional part of the number.
+   - ```accuracy=<integer in the range [1, 100]>``` - maximum number of digits in the fractional part of the number(default ```12```).
 
 ## ```mode=task_generator``` – task generator mode.<span id="request_task_generator"></span>
 ***Required*** **arguments:**
