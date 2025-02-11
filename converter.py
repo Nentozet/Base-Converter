@@ -127,7 +127,7 @@ class Converter:
 
     @staticmethod
     def __get_validated_number(number):
-        number = number.replace(" ", "").replace(",", ".").lstrip("0")
+        number = str(number).replace(" ", "").replace(",", ".").lstrip("0")
 
         if number == "":
             return '0'
