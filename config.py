@@ -26,6 +26,13 @@ class Config:
         'div': '/',
     }
 
+    Task_3_Operations_Weight = {
+        '+': 5,
+        '-': 5,
+        '*': 5,
+        '/': 2
+    }
+
     Task_Arg_Names_Changer = {
         'type': 'task_type',
         'lang': 'lang'
