@@ -1,7 +1,7 @@
 from flask import render_template, flash
 from config import Config
 from user import UserManager, db
-from task import TaskManager
+from task import Task_Manager
 import inspect
 import json
 
@@ -12,7 +12,7 @@ class Program:
         Text_Base = json.load(text_json)
 
     def __init__(self):
-        self.task_manager = TaskManager()
+        self.task_manager = Task_Manager()
         self.user_manager = UserManager()
 
     @staticmethod
@@ -94,15 +94,20 @@ class Program:
             theme = user.theme
             language = user.language
             username_ = user.username
+            skill, skill_color = user.get_skill_data()
         else:
             theme = ses.get("theme")
             language = ses.get("language")
-            username_ = 0
+            username_ = ""
+            skill = ""
+            skill_color = ""
 
         data = {
             "base_filename": f"base_{theme}.html",
             "icon": language,
             "username_": username_,
+            "skill": self.Text_Base[language].get(skill),
+            "skill_color": skill_color,
             **self.Text_Base[language]
         }
 
