@@ -58,6 +58,15 @@ class User(db.Model):
         min_score = self.__Min_Skill_Level
         max_score = self.__Max_Skill_Level
 
+        if self.__skill_level == 0:
+            if is_correctly:
+                self.__skill_level = 5
+            else:
+                self.__skill_level = 2
+
+            db.session.commit()
+            return
+
         if is_correctly:
             self.__correct_tasks_in_a_row_count += 1
             self.__incorrect_tasks_in_a_row_count = 0
@@ -93,3 +102,14 @@ class User(db.Model):
     def set_task(self, data, correct_answers):
         self.task_correct_answers = correct_answers
         self.task_data = data
+
+    def get_skill_data(self):
+        print(self.__skill_level)
+        if self.__skill_level == 0:
+            return "undefined", "#ff3232"
+        elif 1 <= self.__skill_level <= 3:
+            return "low", "#ff3232"
+        elif 4 <= self.__skill_level <= 7:
+            return "middle", "#ffc107"
+        elif 8 <= self.__skill_level <= 10:
+            return "high", "#0d7e2f"
