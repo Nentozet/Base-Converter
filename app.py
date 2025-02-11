@@ -1,4 +1,6 @@
 import os
+import random
+
 from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session, jsonify
 from converter import Converter
 from config import Config
@@ -113,7 +115,7 @@ def train():
     user_id = session.get("user_id")
     user = program.get_user(user_id)
 
-    program.reset_task(randint(1, 2), user)
+    program.reset_task(randint(1, 3), user)
 
     if request.method == "POST":
         session["return_page"] = "train"
