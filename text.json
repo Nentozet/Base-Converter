@@ -28,6 +28,7 @@
     "train_title": "Тренировка",
     "task_1": "Переведите число _ в систему счисления _ (основание в ответе указывать не нужно).",
     "task_2": "Сколько целых чисел x удовлетворяет этому двойному неравенству: \n_ _ x _ _?",
+    "task_3": "Найдите значение выражения и запишите его в системе счисления _: \n_ _ _",
 
     "conversion_result_title": "Результат преобразования",
     "result_title": "Результат",
@@ -55,7 +56,12 @@
     "different_passwords_alert": "Пароли не совпадают",
     "registration_success": "Регистрация прошла успешно. Теперь вы можете войти",
     "invalid_login_data": "Неверные данные для входа",
-    "logout_success": "Вы вышли из системы"
+    "logout_success": "Вы вышли из системы",
+    "skill_label": "Уровень навыков:",
+    "undefined": "Неопределен",
+    "low": "Низкий",
+    "middle": "Средний",
+    "high": "Высокий"
   },
 
   "gb":
@@ -87,7 +93,8 @@
 
     "train_title": "Training",
     "task_1": "Convert the number _ to base _ (the base does not need to be specified in the answer).",
-    "task_2": "How many integers x satisfy this double inequality: \n_ _ x _ _?",
+    "task_2": "How many integers x satisfy the following double inequality: \n_ _ x _ _?",
+    "task_3": "Find the value of the expression and write it in the number system _: \n_ _ _",
 
     "conversion_result_title": "Сonversion result",
     "result_title": "Result",
@@ -115,7 +122,12 @@
     "different_passwords_alert": "Passwords do not match",
     "registration_success": "Registration successful. You can now log in",
     "invalid_login_data": "Invalid login credentials",
-    "logout_success": "You have logged out"
+    "logout_success": "You have logged out",
+    "skill_label": "Skill level:",
+    "undefined": "Undefined",
+    "low": "Low",
+    "middle": "Middle",
+    "high": "High"
   },
 
     "de":
@@ -147,6 +159,7 @@
     "train_title": "Training",
     "task_1": "Wandeln Sie die Zahl _ in das Zahlensystem _ um (die Basis muss in der Antwort nicht angegeben werden).",
     "task_2": "Wie viele ganze Zahlen x erfüllen diese doppelte Ungleichung: \n_ _ x _ _?",
+    "task_3": "Berechnen Sie den Wert des Ausdrucks und schreiben Sie ihn im Zahlensystem _: \n_ _ _",
 
     "conversion_result_title": "Konvertierungsergebnis",
     "result_title": "Ergebnis",
@@ -174,7 +187,12 @@
     "different_passwords_alert": "Passwörter stimmen nicht überein",
     "registration_success": "Registrierung erfolgreich. Sie können sich jetzt anmelden",
     "invalid_login_data": "Ungültige Anmeldedaten",
-    "logout_success": "Sie haben sich abgemeldet"
+    "logout_success": "Sie haben sich abgemeldet",
+    "skill_label": "Fähigkeitsstufe:",
+    "undefined": "Undefiniert",
+    "low": "Niedrig",
+    "middle": "Mittel",
+    "high": "Hoch"
   },
 
   "fr":
@@ -206,6 +224,7 @@
     "train_title": "Entraînement",
     "task_1": "Convertir le chiffre _ en système numérique _ (il n'est pas nécessaire d'indiquer la base dans la réponse).",
     "task_2": "Combien de nombres entiers x satisfont cette double inégalité : \n_ _ x _ _?",
+    "task_3": "Trouvez la valeur de l'expression et écrivez-la dans le système de numérotation _: \n_ _ _",
 
     "conversion_result_title": "Résultat de la conversion",
     "result_title": "Résultat",
@@ -233,7 +252,12 @@
     "different_passwords_alert": "Les mots de passe ne correspondent pas",
     "registration_success": "Inscription réussie. Vous pouvez maintenant vous connecter",
     "invalid_login_data": "Identifiants de connexion incorrects",
-    "logout_success": "Vous vous êtes déconnecté"
+    "logout_success": "Vous vous êtes déconnecté",
+    "skill_label": "Niveau de compétence :",
+    "undefined": "Indéfini",
+    "low": "Faible",
+    "middle": "Moyen",
+    "high": "Élevé"
   },
 
   "jp":
@@ -265,6 +289,7 @@
     "train_title": "トレーニング",
     "task_1": "数値 _ を数体系 _ に変換します (解答には基数を指定する必要はありません)。",
     "task_2": "この二重不等式を満たす整数 x はいくつありますか: \n_ _ x _ _?",
+    "task_3": "式の値を求め、次の基数で記述してください _: \n_ _ _",
 
     "conversion_result_title": "変換結果",
     "result_title": "結果",
@@ -292,6 +317,11 @@
     "different_passwords_alert": "パスワードが一致しません",
     "registration_success": "登録が成功しました。ログインできます",
     "invalid_login_data": "無効なログイン情報",
-    "logout_success": "ログアウトしました"
+    "logout_success": "ログアウトしました",
+    "skill_label": "スキルレベル：",
+    "undefined": "未定義",
+    "low": "低い",
+    "middle": "中程度",
+    "high": "高い"
   }
 }
