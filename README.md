@@ -9,4 +9,6 @@
 - **Система авторизации** с хранением данных в базе PostgreSQL.
 
 # Base Converter API
-Документация на [русском языке](API Documentation ru.md) и [английском языке](API Documentation ru.md).
+Документация:
+  - [Русский](API-Documentation-ru.md) 
+  - [English](API-Documentation-ru.md)
