@@ -1,5 +1,4 @@
 import os
-import random
 
 from flask import Flask, request, redirect, url_for, flash, get_flashed_messages, session, jsonify
 from converter import Converter
@@ -224,6 +223,20 @@ def logout():
 
     flash(text["logout_success"], "success")
     return redirect(url_for("login"))
+
+
+@app.route("/api", methods=["GET", "POST"])
+def base_api():
+    program.init(session)
+
+    user_id = session.get("user_id")
+    user = program.get_user(user_id)
+
+    if request.method == "POST":
+        action = request.form.get("action")
+        program.process_action(action, request, session)
+
+    return program.get_rendered_template("api_info.html", session, user)
 
 
 @app.route("/api/<string:args>", methods=["GET"])
