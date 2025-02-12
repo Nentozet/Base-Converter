@@ -61,7 +61,10 @@
     "undefined": "Неопределен",
     "low": "Низкий",
     "middle": "Средний",
-    "high": "Высокий"
+    "high": "Высокий",
+
+    "api_title": "API Конвертера Систем Счисления",
+    "documentation": "Документация"
   },
 
   "gb":
@@ -127,7 +130,10 @@
     "undefined": "Undefined",
     "low": "Low",
     "middle": "Middle",
-    "high": "High"
+    "high": "High",
+
+    "api_title": "Base Converter API",
+    "documentation": "Documentation"
   },
 
     "de":
@@ -192,7 +198,10 @@
     "undefined": "Undefiniert",
     "low": "Niedrig",
     "middle": "Mittel",
-    "high": "Hoch"
+    "high": "Hoch",
+
+    "api_title": "API des Zahlensystem-Konverters",
+    "documentation": "Dokumentation"
   },
 
   "fr":
@@ -257,7 +266,10 @@
     "undefined": "Indéfini",
     "low": "Faible",
     "middle": "Moyen",
-    "high": "Élevé"
+    "high": "Élevé",
+
+    "api_title": "API du convertisseur de systèmes de numération",
+    "documentation": "Documentation"
   },
 
   "jp":
@@ -322,6 +334,9 @@
     "undefined": "未定義",
     "low": "低い",
     "middle": "中程度",
-    "high": "高い"
+    "high": "高い",
+
+    "api_title": "数値変換API",
+    "documentation": "ドキュメント"
   }
 }
