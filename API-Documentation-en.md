@@ -58,8 +58,9 @@ The main parameter is ```mode```, which can take the following values:
 
      | Task Type | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task Statement |
      | :-------: | :----------------------------------------------------------------------------------------------------- |
-     | 1         | Convert the number ```<random integer>``` to the numeral system ```<random integer in the range [2, 36]>``` (do not specify the base in the answer). |
-     | 2         | How many integers ```x``` satisfy the following double inequality: ```<random integer>``` **<sign </&#8804;>** ```x``` **<sign </&#8804;>** ```<random integer>```? |
+     | 1 | Convert the number ```<random integer>``` to the numeral system ```<random integer in the range [2, 36]>``` (do not specify the base in the answer). |
+     | 2 | How many integers ```x``` satisfy the following double inequality: ```<random integer>``` **<sign </&#8804;>** ```x``` **<sign </&#8804;>** ```<random integer>```? |
+     | 3 | Find the value of the expression and write it in the number system  ```<random integer in the range [2, 36]>```: ```<random integer>``` **<sign of operation (+, -, * or /)>** ```<random integer>``` |
    - ```lang=<language code>``` - language to which the task statement will be translated.
 
      |    Language    | Language Code |
