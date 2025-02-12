@@ -1,5 +1,4 @@
 from flask import session
-from user import db
 from toolset import Toolset
 from converter import Converter
 from config import Config
@@ -43,30 +42,14 @@ class Task_Manager:
         return Toolset.replace_underscores(text_base[f"task_{task_type}"], replacements)
 
     @staticmethod
-    def get_result(text_base, user):
+    def get_result(text_base, correct_answer_format):
         if session.get("last_answer_correct"):
             return text_base["correct"]
         else:
-            return text_base["incorrect"].replace("_", user.task_correct_answers.split("|")[-1])
+            return text_base["incorrect"].replace("_", correct_answer_format)
 
     @staticmethod
-    def reset_task(task_type, user):
-        match task_type:
-            case 1:
-                user.set_task(*Task_Manager.__get_task_1())
-            case 2:
-                user.set_task(*Task_Manager.__get_task_2())
-            case 3:
-                user.set_task(*Task_Manager.__get_task_3())
-            case _:
-                raise Exception(f"{task_type} task doesn't exist")
-
-        user.task_type = task_type
-        db.session.commit()
-
-    @staticmethod
-    def check_answer(answer, user):
-        correct_answers = user.task_correct_answers.split('|')
+    def check_answer(answer, correct_answers):
         if answer == correct_answers[0]:
             session["color"] = Config.Correct_Font_Color
             session["last_answer_correct"] = True
@@ -157,15 +140,17 @@ class Task_Manager:
 
         return data, correct_answers
 
-    def generate_task(self, text_base, task_type):
+    @staticmethod
+    def generate_task(task_type):
         task_type = int(task_type)
         match task_type:
             case 1:
-                data, correct_answers = self.__get_task_1()
+                data, correct_answers = Task_Manager.__get_task_1()
             case 2:
-                data, correct_answers = self.__get_task_2()
+                data, correct_answers = Task_Manager.__get_task_2()
+            case 3:
+                data, correct_answers = Task_Manager.__get_task_3()
             case _:
                 raise Exception(f"{task_type} task doesn't exist")
 
-        text = self.get_text(text_base, data, task_type)
-        return text, correct_answers
+        return data, correct_answers
