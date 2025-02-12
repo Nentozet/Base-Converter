@@ -103,7 +103,6 @@ class User(db.Model):
         self.task_type = task_type
         self.task_data = data
         self.task_correct_answers = correct_answers
-        db.session.commit()
 
     def get_skill_data(self):
         if self.__skill_level == 0:
