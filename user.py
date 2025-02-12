@@ -99,12 +99,13 @@ class User(db.Model):
 
         db.session.commit()
 
-    def set_task(self, data, correct_answers):
-        self.task_correct_answers = correct_answers
+    def set_task(self, task_type, data, correct_answers):
+        self.task_type = task_type
         self.task_data = data
+        self.task_correct_answers = correct_answers
+        db.session.commit()
 
     def get_skill_data(self):
-        print(self.__skill_level)
         if self.__skill_level == 0:
             return "undefined", "#ff3232"
         elif 1 <= self.__skill_level <= 3:
