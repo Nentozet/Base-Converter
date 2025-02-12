@@ -27,6 +27,10 @@ Toolset.keep_alive()
 
 
 @app.route("/", methods=["GET", "POST"])
+def to_converter():
+    return redirect(url_for("converter"))
+
+
 @app.route("/converter", methods=["GET", "POST"])
 def converter():
     program.init(session)
@@ -288,3 +292,4 @@ def get_api_response(args):
 
 if __name__ == "__main__":
     app.run()
+    
