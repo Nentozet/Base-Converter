@@ -103,6 +103,7 @@ ___
   {
     "text": ...,
     "correct_answer": ...
+    "correct_answer_formatted": то же, что и "correct_answer", но с записью основания.
   }
 }
 ```
