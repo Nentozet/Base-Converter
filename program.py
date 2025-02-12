@@ -74,11 +74,11 @@ class Program:
                 raise Exception("Program doesn't know about this action")
 
     def check_answer_for_task(self, answer, user):
-        return self.task_manager.check_answer(answer, user)
+        return self.task_manager.check_answer(answer, user.task_correct_answers.split('|'))
 
     def reset_task(self, task_type, user):
         if user.need_to_reset_task:
-            self.task_manager.reset_task(task_type, user)
+            user.set_task(task_type, *self.task_manager.generate_task(task_type))
             user.need_to_reset_task = False
             db.session.commit()
 
@@ -86,7 +86,7 @@ class Program:
         return self.task_manager.get_text(self.Text_Base[language], task_data, task_type)
 
     def get_task_result(self, user):
-        return self.task_manager.get_result(self.Text_Base[user.language], user)
+        return self.task_manager.get_result(self.Text_Base[user.language], user.task_correct_answers.split("|")[-1])
 
     def get_rendered_template(self, filename, ses, user=0, *args):
         # !!! В качестве *args этой функции должны передаваться переменные с таким же названием, что и в html-файле
@@ -128,4 +128,6 @@ class Program:
         user.calculate_skill_score(res)
 
     def generate_task(self, lang, task_type):
-        return self.task_manager.generate_task(self.Text_Base[lang], task_type)
+        data, corr_ans = self.task_manager.generate_task(task_type)
+        text = self.task_manager.get_text(self.Text_Base[lang], data, task_type)
+        return text, corr_ans
