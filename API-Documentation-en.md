@@ -102,7 +102,8 @@ After processing the request, a **JSON file** is returned as a response.
   "result":
   {
     "text": ...,
-    "correct_answer": ...
+    "correct_answer": ...,
+    "correct_answer_formatted": same as "correct_answer", but with the base recorded.
   }
 }
 ```
