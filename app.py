@@ -238,7 +238,7 @@ def base_api():
 
     if request.method == "POST":
         action = request.form.get("action")
-        program.process_action(action, request, session)
+        program.process_action(action, request, session, user)
 
     return program.get_rendered_template("api_info.html", session, user)
 
@@ -292,4 +292,3 @@ def get_api_response(args):
 
 if __name__ == "__main__":
     app.run()
-    
