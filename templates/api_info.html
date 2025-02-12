@@ -1,0 +1,26 @@
+{% extends base_filename %}
+
+
+{% block title %}{{ api_title }}{% endblock %}
+
+
+{% block styles %}
+    .container {
+      max-width: 650px;
+    }
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>{{api_title}}</h1>
+
+        <p>{{documentation}}:</p>
+        <p><a href="https://github.com/Nentozet/Base-Converter/blob/main/API-Documentation-ru.md"
+              style="color: #28a645">Русский</a></p>
+        <p><a href="https://github.com/Nentozet/Base-Converter/blob/main/API-Documentation-en.md"
+              style="color: #28a645">English</a></p>
+
+
+    </div>
+{% endblock %}
