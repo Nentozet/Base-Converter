@@ -1,9 +1,18 @@
+from string import ascii_letters, digits
+
+
 class Config:
     Default_Language = "ru"
     Default_Theme = "dark"
     Correct_Font_Color = "#00b400"
     Conversion_Accuracy = 12
     Calculation_Accuracy = 12
+
+    Username_Min_Symbols_Count = 4
+    Username_Max_Symbols_Count = 20
+    User_Password_Min_Symbols_Count = 5
+    User_Password_Max_Symbols_Count = 25
+
     Converter_Arg_Names_Changer = {
         'fn': 'from_number',
         'fb': 'from_base',
@@ -37,3 +46,8 @@ class Config:
         'type': 'task_type',
         'lang': 'lang'
     }
+
+    Cyrillic_Uppercase = ''.join(map(chr, range(ord('А'), ord('Я') + 1)))
+    Cyrillic_Lowercase = ''.join(map(chr, range(ord('а'), ord('я') + 1)))
+
+    Available_Symbols = ascii_letters + digits + Cyrillic_Uppercase + Cyrillic_Lowercase
