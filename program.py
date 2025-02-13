@@ -33,6 +33,16 @@ class Program:
             flash(self.Text_Base[lang]["existed_username_alert"], "danger")
             return False
 
+        if not Config.Username_Min_Symbols_Count <= len(username) <= Config.Username_Max_Symbols_Count or \
+                not all(symbol in Config.Available_Symbols for symbol in username):
+            flash(self.Text_Base[lang]["invalid_username"], "danger")
+            return False
+
+        if not Config.User_Password_Min_Symbols_Count <= len(password_1) <= Config.User_Password_Max_Symbols_Count \
+                or not all(symbol in Config.Available_Symbols for symbol in password_1):
+            flash(self.Text_Base[lang]["invalid_password"], "danger")
+            return False
+
         if password_1 != password_2:
             flash(self.Text_Base[lang]["different_passwords_alert"], "danger")
             return False
