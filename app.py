@@ -23,6 +23,8 @@ with app.app_context():
 
 program = Program()
 
+Toolset.keep_alive()
+
 
 @app.route("/", methods=["GET", "POST"])
 def to_converter():
