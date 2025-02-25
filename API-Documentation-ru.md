@@ -137,7 +137,7 @@ ___
   "result": "1101.01"
 }
 ```
-> Сгенерировать задачу типа **1** на **русском языке**.\
+> Сгенерировать задачу типа **2** на **русском языке**.\
 > https://base-converter.onrender.com/api/mode=task_generator&type=2&lang=ru
 ```json
 {
