@@ -20,7 +20,7 @@ Base URL:
 >https://base-converter.onrender.com/api/
 
 > [!IMPORTANT]
-> All parameters must be passed by name, using the ```=``` sign to specify the value.> Each such "name-value" pair is separated by the ```&``` sign.> Parameters can be specified in any order.
+> All parameters must be passed by name, using the ```=``` sign to specify the value.> Each such "name-value" pair is separated by the ```&``` sign. Parameters can be specified in any order.
 
 The main parameter is ```mode```, which can take the following values:
 
