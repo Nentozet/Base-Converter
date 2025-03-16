@@ -60,6 +60,21 @@ class Task_Manager:
             return False
 
     @staticmethod
+    def generate_task(task_type):
+        task_type = int(task_type)
+        match task_type:
+            case 1:
+                data, correct_answers = Task_Manager.__get_task_1()
+            case 2:
+                data, correct_answers = Task_Manager.__get_task_2()
+            case 3:
+                data, correct_answers = Task_Manager.__get_task_3()
+            case _:
+                raise Exception(f"{task_type} task doesn't exist")
+
+        return data, correct_answers
+    
+    @staticmethod
     def __get_task_1():
         from_number, from_base = Task_Manager.get_random_number_base()
 
@@ -137,20 +152,5 @@ class Task_Manager:
         number2_format = Toolset.get_number_with_base(number2, base2)
 
         data = "|".join([str(res_base), number1_format, operation, number2_format])
-
-        return data, correct_answers
-
-    @staticmethod
-    def generate_task(task_type):
-        task_type = int(task_type)
-        match task_type:
-            case 1:
-                data, correct_answers = Task_Manager.__get_task_1()
-            case 2:
-                data, correct_answers = Task_Manager.__get_task_2()
-            case 3:
-                data, correct_answers = Task_Manager.__get_task_3()
-            case _:
-                raise Exception(f"{task_type} task doesn't exist")
 
         return data, correct_answers
